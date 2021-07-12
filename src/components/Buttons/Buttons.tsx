@@ -1,8 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-// import { fonts } from '../../globalStyles/fonts'
-import { GaramondWoff } from '../../fonts/Garamond.woff'
-import { GaramondWoff2 } from '../../fonts/Garamond.woff2'
 import { fonts } from '../../globalStyles/fonts'
 
 export interface ButtonsProps {
@@ -13,29 +10,17 @@ export interface ButtonsProps {
 }
 
 const FirstWrapper = styled.div`
-  display: inline-block;
-  position: relative;
+  display: inline-flex;
   background: rgba(252, 70, 43, 0.3);
 `
 const SecondWrapper = styled.div`
-  display: inline-block;
+  transform: translate(-6px, 6px);
   background: rgba(21, 140, 177, 0.3);
-  position: absolute;
-  top: 6px;
-  left: -6px;
 `
 const Button = styled.button<ButtonsProps>`
   ${fonts}
-  @font-face {
-    font-family: 'Garamond';
-    src: local('Garamond'), local('Garamond'),
-    font-weight: 400;
-    font-style: normal;
-  }
 
-  position: absolute;
-  top: -3px;
-  left: 3px;
+  transform: translate(3px, -3px);
   outline: none;
   font-size: 24px;
   line-height: 27px;
