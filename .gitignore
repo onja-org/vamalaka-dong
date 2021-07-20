@@ -7,6 +7,7 @@ server/node_modules
 .pnp.js
 
 /server/data
+/server/uploads
 # testing
 /coverage
 
