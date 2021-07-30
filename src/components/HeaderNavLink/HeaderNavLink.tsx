@@ -28,13 +28,13 @@ export const loggeOut = [
     path: '#login',
     imgSrc: signin,
     alt: 'Log in',
-    text: 'Log in',
+    text: 'Log In',
   },
   {
-    path: '#account',
+    path: '#signup',
     imgSrc: account,
-    alt: 'Accounts',
-    text: 'Account',
+    alt: 'Sign up',
+    text: 'Sign Up',
   },
 ]
 export interface ItemType {

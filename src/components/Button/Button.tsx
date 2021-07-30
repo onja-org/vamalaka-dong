@@ -7,14 +7,6 @@ export interface ButtonProps {
   disabled?: boolean
   onClick?: () => void
 }
-const FirstWrapper = styled.div`
-  display: inline-flex;
-  background: rgba(252, 70, 43, 0.3);
-`
-const SecondWrapper = styled.div`
-  transform: translate(-6px, 6px);
-  background: rgba(21, 140, 177, 0.3);
-`
 const ButtonStyled = styled.button<ButtonProps>`
   ${fonts}
   transform: translate(3px, -3px);
@@ -36,6 +28,7 @@ const ButtonStyled = styled.button<ButtonProps>`
     cursor: not-allowed;
     background-color: gray;
   }
+  box-shadow: -3px 3px rgba(21, 140, 177, 0.3), 3px -3px rgba(252, 70, 43, 0.3); 
 `
 const Button: React.FC<ButtonProps> = ({
   label,
@@ -45,18 +38,16 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <FirstWrapper>
-      <SecondWrapper>
-        <ButtonStyled
-          type='button'
-          isPrimary={isPrimary ? true : false}
-          disabled={disabled}
-          onClick={() => ''}
-          {...props}>
-          {label}
-        </ButtonStyled>
-      </SecondWrapper>
-    </FirstWrapper>
+    <>
+      <ButtonStyled
+        type='button'
+        isPrimary={isPrimary ? true : false}
+        disabled={disabled}
+        onClick={() => ''}
+        {...props}>
+        {label}
+      </ButtonStyled>
+    </>
   )
 }
 export default Button
