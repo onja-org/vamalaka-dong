@@ -5,6 +5,8 @@ import { createGlobalStyle } from 'styled-components'
 
 import { fonts } from '../../globalStyles/fonts'
 
+import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
+
 export const FooterFonts = createGlobalStyle`
 	code {
 		font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -44,43 +46,52 @@ const DetailsStyles = styled.details`
     display: none;
   }
 
-  @media (max-width: 900px) {
-    text-align: start;
+  ${mediaQueries(null, "lg")`
+  text-align: start;
 
-    a {
-      font-size: 18px;
-      line-height: 22px;
-    }
-
-    summary {
-      font-size: 25px;
-      line-height: 30px;
-      pointer-events: all;
-      cursor: pointer;
-    }
-
-    summary:focus {
-      outline: none;
-    }
-
-    summary::after {
-      content: '';
-      display: inline-block;
-      width: 0px;
-      height: 0px;
-      border-top: 14px solid white;
-      border-right: 11px solid transparent;
-      border-bottom: 11px solid transparent;
-      border-left: 11px solid transparent;
-      transition: 0.2s;
-      transform: translateY(50%);
-      margin: 0 0 0 10px;
-    }
-
-    &[open] > summary::after {
-      transform: rotate(180deg);
-    }
+  a {
+    font-size: 18px;
+    line-height: 22px;
   }
+
+  summary {
+    font-size: 25px;
+    line-height: 30px;
+    pointer-events: all;
+    cursor: pointer;
+  }
+
+  summary:focus {
+    outline: none;
+  }
+
+  summary::after {
+    content: '';
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border-top: 14px solid white;
+    border-right: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: 11px solid transparent;
+    transition: 0.2s;
+    transform: translateY(50%);
+    margin: 0 0 0 10px;
+  }
+
+  &[open] > summary::after {
+    transform: rotate(180deg);
+  }
+  `}
+    
+
+  ${mediaQueries(null, "lg")`
+    summary {
+      :first-child {
+        margin-block-start: 28px;
+      }
+    }
+  `}
 `
 
 export interface SectionLinkProps {

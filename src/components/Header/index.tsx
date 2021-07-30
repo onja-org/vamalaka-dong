@@ -11,6 +11,8 @@ import {
 import { List } from '../HeaderNavLink/List'
 import Input from '../HeaderInputSearch/HeaderInputSearch'
 
+import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
+
 export const Header: FC<LinkTypes> = ({ item }) => {
   return (
     <HeaderStyles>
@@ -33,7 +35,8 @@ export const Header: FC<LinkTypes> = ({ item }) => {
 
 const HeaderStyles = styled.header`
   margin: 0;
-  width: 100%;
+  padding-block-start: 21px;
+  padding-inline: 15px;
 
   div {
     width: 100%;
@@ -42,9 +45,10 @@ const HeaderStyles = styled.header`
     align-items: center;
     gap: 50px;
 
-    @media (max-width: 900px) {
+    ${mediaQueries(null, "lg")`
+      margin-block-start: 12px;
       display: flex;
       justify-content: space-between;
-    }
+    `}
   }
 `

@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import {fonts} from '../../globalStyles/fonts';
 
 import Button from '../Button/Button';
+import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries';
 
 const LearnMoreContainer = styled.article`
     ${fonts}
     display: flex;
-        flex-direction: column-reverse;
-        padding-inline: 0;
-        margin-block-start: 15px;
-        margin-block-end: 27px;
+    flex-direction: column-reverse;
+    margin-block-start: 15px;
+    margin-block-end: 27px;
 
         h3 {
             font-family: "Futura Std";
@@ -35,11 +35,11 @@ const LearnMoreContainer = styled.article`
             margin: 0;
         }
 
-    @media (min-width: 1000px) {
+    ${mediaQueries("lg", null)`
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding-inline: 60px;
+        padding-inline: 80px;
         margin-block-end: 93px;
         margin-block-start: 51px;
 
@@ -66,9 +66,9 @@ const LearnMoreContainer = styled.article`
             max-width: 100%;
             margin-inline-start: 25px;
         }
-    }
+    `}
 
-    @media (min-width: 1000px) and (max-width: 1300px) {
+    ${mediaQueries("lg", "xl")`
         padding-inline: 0;
         h3 {
             font-size: 40px;
@@ -77,13 +77,19 @@ const LearnMoreContainer = styled.article`
         p {
             font-size: 25px;
         }
-    }
+    `}
+
+    ${mediaQueries(null, "lg")`
+        padding-inline-start: 21px;
+        padding-inline-end: 17px;
+        gap: 0;
+    `}
 `;
 
 const ButtonContainer = styled.div`
     display: none;
     
-    @media (min-width: 1000px) {
+    ${mediaQueries("lg", null)`
         display: block;
         margin-block-start: 45px;
 
@@ -98,33 +104,27 @@ const ButtonContainer = styled.div`
                 margin-inline-start: 12px;
             }
         }
-    }
+    `}
 
-    @media (min-width: 1000px) and (max-width: 1300px) {
+    ${mediaQueries("lg", "xl")`
         button {
             font-size: 18px;
-        }
-    }
+        } 
+    `}
 `;
 
 export interface LearnMoreProps {
-    learnMoreHeading: string,
-    learnMoreDescription: string,
     isPrimary?: boolean
     onClick?: () => void
     learnMoreButton: string
-    imageDescription: string
     imageUrl: string
 }
 
 
 export const LearnMore: React.FC<LearnMoreProps> = ({
-    learnMoreHeading, 
-    learnMoreDescription,
     onClick,
     isPrimary,
     learnMoreButton,
-    imageDescription,
     imageUrl
 }) => {
         
@@ -132,18 +132,18 @@ export const LearnMore: React.FC<LearnMoreProps> = ({
         <LearnMoreContainer>
             <div>
                 <header>
-                    <h3>{learnMoreHeading}</h3>
+                    <h3>Madagascars peer-to-peer e-commerce platform</h3>
                 </header>
                 <div>
                     <p>
-                        {learnMoreDescription}
+                        Purchase high-quality products made by the people that sell them. By cutting out middlemen, you know exactly where your purchase is from and how it was made.
                     </p>
                     <ButtonContainer>
                         <Button isPrimary={isPrimary} label={learnMoreButton} />
                     </ButtonContainer>
                 </div>
             </div>
-            <img src={imageUrl} alt={imageDescription} />
+            <img src={imageUrl} alt="Peer-to-peer image" />
         </LearnMoreContainer>
     )
 }
