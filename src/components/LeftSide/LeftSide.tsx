@@ -11,6 +11,7 @@ const Container = styled.div`
   background-repeat: no-repeat;
   width: 100%;
   max-width: 583.5px;
+  height: 100%;
 
   p {
     ${fonts};
@@ -19,7 +20,7 @@ const Container = styled.div`
     font-size: 40px;
     line-height: 48px;
     max-width: 528px;
-    padding: 226px 0 241px 42px;
+    padding: 226px 4px 241px 4px;
   }
 `
 

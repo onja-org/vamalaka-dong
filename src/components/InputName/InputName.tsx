@@ -19,7 +19,6 @@ const inputStyles = css`
   border: 1px solid #041d42;
   border-radius: 6px;
 `
-
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,7 +53,6 @@ const InputContainer = styled.div`
     font-family: 'Futura Std', Arial, Helvetica, sans-serif;
   }
 `
-
 const InputElement = styled.input`
   ${fonts}
   font-family: 'Futura Std', Arial, Helvetica, sans-serif;
@@ -74,7 +72,6 @@ const InputElement = styled.input`
     font-family: 'Futura Std', Arial, Helvetica, sans-serif;
   }
 `
-
 export interface InputProps {
   label: string
   placeholder: string

@@ -1,159 +1,108 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
+import React, { useState } from 'react'
+import Buyer from '../RoleIcon/Buyer'
+import styled from 'styled-components'
+import Seller from '../RoleIcon/Seller'
 import { fonts } from '../../globalStyles/fonts'
-import arrowRightIcon from '../../stories/assets/arrow-right.svg'
 import darkPolygonBg from '../../stories/assets/dark-polygon.svg'
+import arrowRightIcon from '../../stories/assets/arrow-right.svg'
 import whitePolygonBg from '../../stories/assets/white-polygon.svg'
+import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
 
-export interface OptionProps {
-  label?: string
-  text?: string
+export interface RoleSelectOption {
   src?: string
   alt?: string
+  text?: string
+  label?: string
 }
-
-const polygonBg = css`
-  background-repeat: no-repeat;
-  max-width: 426px;
-  padding-block-end: 16px;
-  padding-block-start: 16px;
-  padding-inline-end: 16px;
-  padding-inline-start: 16px;
+const ArrowRightIcon = styled.img`
+  display: none;
 `
-
-const optionWrapperStyles = css`
+const RoleIcon = styled.div`
+  background-image: url(${whitePolygonBg});
+  background-repeat: no-repeat;
+  padding: 16px;
+`
+const RoleSelectWrapper = styled.div`
+  z-index: 1;
+  padding: 28px;
+  cursor: pointer;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.06);
+  ${mediaQueries(null, 'sm')`
+    padding: 16px;
+  `};
+  :hover {
+    background: #f5f9ff;
+    border: 1px solid #041d42;
+    padding: 27px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.04);
+    border-radius: 6px;
+    ${RoleIcon} {
+      background-image: url(${darkPolygonBg});
+    }
+    ${ArrowRightIcon} {
+      display: inline-block;
+    }
+  }
+`
+const SelectWrapper = styled.div`
   ${fonts}
   font-family: 'Futura Std', Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding-inline-start: 8px;
-  padding-block-start: 10px;
-  padding-block-end: 4px;
   align-items: center;
+  justify-content: space-between;
   box-sizing: border-box;
-  border-radius: 6px;
+`
+const TextWrapper = styled.div`
+  margin: auto;
+  ${mediaQueries(null, 'sm')`
+    max-width: 170px;
+    margin: auto;
+  `};
+`
+const RoleTitle = styled.h6`
+  font-family: 'Futura Std';
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: normal;
+  margin: 0;
+  color: #041d42;
+`
+const RoleText = styled.p`
+  color: #979797;
+  font-size: 14px;
+  max-width: 161px;
+  line-height: 17px;
+  margin: 0;
+  margin-block-start: 4px;
+  ${mediaQueries(null, 'sm')`
+    max-width: 239px;
+  `};
 `
 
-export const Option: React.FC<OptionProps> = ({ label, text, src, alt }) => {
+export const Option: React.FC<RoleSelectOption> = ({ label, text }) => {
+  const [isMouseHover, setIsMouseHover] = useState(true)
   return (
-    <RoleSelectWrapper>
-      <div
-        className={
-          label === 'Buyer'
-            ? 'inner-select-wrapper-buyer'
-            : 'inner-select-wrapper-seller'
-        }>
-        <div
-          className={
-            label === 'Buyer'
-              ? 'dark-polygon-wrapper-bg'
-              : 'white-polygon-wrapper-bg'
-          }>
-          <img src={src} alt={alt} />
-        </div>
-        <div className='text-wrapper'>
-          <h6>{label}</h6>
-          <p>{text}</p>
-        </div>
-        {label === 'Buyer' ? (
-          <button className='arrow-right-wrapper' onClick={() => null}>
-            <img src={arrowRightIcon} alt='Arrow icon' />
-          </button>
-        ) : (
-          <button className='arrow-right-wrapper-hidden'>
-            <img src={arrowRightIcon} alt='Arrow icon' />
-          </button>
-        )}
-      </div>
+    <RoleSelectWrapper
+      onMouseOver={() => setIsMouseHover(false)}
+      onMouseLeave={() => setIsMouseHover(true)}>
+      <SelectWrapper>
+        <RoleIcon>
+          {label === 'Buyer' ? (
+            <Buyer isMouseHover={isMouseHover} />
+          ) : (
+            <Seller isMouseHover={isMouseHover} />
+          )}
+        </RoleIcon>
+        <TextWrapper>
+          <RoleTitle>{label}</RoleTitle>
+          <RoleText>{text}</RoleText>
+        </TextWrapper>
+        <ArrowRightIcon src={arrowRightIcon} alt='Arrow icon' />
+      </SelectWrapper>
     </RoleSelectWrapper>
   )
 }
-
-const RoleSelectWrapper = styled.div`
-  .inner-select-wrapper-buyer {
-    background-color: #f5f9ff;
-    border: 1px solid #041d42;
-    box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.04);
-    ${optionWrapperStyles}
-  }
-
-  .inner-select-wrapper-seller {
-    box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.06);
-    ${optionWrapperStyles}
-  }
-
-  .dark-polygon-wrapper-bg {
-    background-image: url(${darkPolygonBg});
-    ${polygonBg}
-  }
-
-  .white-polygon-wrapper-bg {
-    background-image: url(${whitePolygonBg});
-    ${polygonBg}
-  }
-
-  .text-wrapper h6 {
-    font-size: 16px;
-    line-height: 19px;
-    margin-block-start: 16px;
-    margin-block-end: 0;
-    color: #041d42;
-  }
-
-  .text-wrapper p {
-    max-width: 161px;
-    font-size: 14px;
-    line-height: 17px;
-    margin-block-start: 4px;
-    color: #979797;
-  }
-  .text-wrapper {
-    @media (max-width: 360px) {
-      text-align: center;
-      margin: 0;
-    }
-    @media (max-width: 476px) {
-      max-width: 150px;
-    }
-  }
-
-  .text-wrapper h6 {
-    font-family: 'Futura Std';
-    font-size: 16px;
-    line-height: 19px;
-    margin-block-start: 16px;
-    margin-block-end: 0;
-    color: #041d42;
-  }
-
-  .arrow-right-wrapper {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    justify-self: end;
-    padding-inline-end: 8px;
-    padding-inline-start: 0;
-  }
-
-  .arrow-right-wrapper-hidden {
-    visibility: hidden;
-    pointer-events: none;
-  }
-
-  @media (min-width: 375px) {
-    .inner-select-wrapper-buyer,
-    .inner-select-wrapper-seller {
-      padding-inline-start: 28px;
-    }
-
-    .text-wrapper p {
-      max-width: 239px;
-    }
-
-    .arrow-right-wrapper {
-      padding-inline-end: 16px;
-    }
-  }
-`

@@ -43,7 +43,7 @@ const FooterContainer = styled('div')`
   details {
     padding: 0;
   }
-  ${mediaQueries(null, 'md')`
+  ${mediaQueries(null, 'lg')`
     flex-direction: column;
     gap: 21px;
   `}

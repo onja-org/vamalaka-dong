@@ -8,15 +8,12 @@ const Text = styled.p`
   color: rgba(151, 151, 151, 1);
   font-size: 14px;
   line-height: 17px;
+  margin: 0;
 `
 export interface Props {
   text: string
 }
 
 export const DescriptionOffer: React.FC<Props> = ({ text }) => {
-  return (
-    <div>
-      <Text>{text}</Text>
-    </div>
-  )
+  return <Text>{text}</Text>
 }
