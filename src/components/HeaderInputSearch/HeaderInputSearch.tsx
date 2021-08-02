@@ -40,6 +40,7 @@ const Label = styled.label`
     color: #979797;
     background: transparent;
     border: none;
+    outline: none;
     &:focus {
       border: none;
     }

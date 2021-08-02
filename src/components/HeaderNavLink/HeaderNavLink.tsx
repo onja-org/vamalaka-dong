@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 import language from '../../assests/languages.svg'
 import transactions from '../../assests/transactions.svg'
@@ -21,7 +21,6 @@ export const loggedIn = [
     text: 'Account',
   },
 ]
-
 export const loggeOut = [
   { path: '#language', imgSrc: language, alt: 'Languages', text: 'English' },
   {
@@ -43,7 +42,6 @@ export interface ItemType {
   alt: string
   text: string
 }
-
 export interface LinkTypes {
   item: Array<ItemType>
 }
