@@ -63,7 +63,7 @@ export const footerLinks = [
   },
 ]
 
-const GenericPages: React.FC = ({ children }) => {
+const GenericPage: React.FC = ({ children }) => {
   return (
     <Container>
       <TopContainerStyles>
@@ -78,4 +78,4 @@ const GenericPages: React.FC = ({ children }) => {
     </Container>
   )
 }
-export default GenericPages
+export default GenericPage
