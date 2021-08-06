@@ -1,60 +1,68 @@
 import React from 'react'
-import styled from 'styled-components'
-
 import { Header } from '../../components/Header'
 import { LearnMore } from '../../components/LearnMore/LearnMore'
-import { DiscoverBanner } from '../../components/DiscoveBanner/DiscoverBanner'
 import { PageFooter } from '../../components/PageFooter/PageFooter'
-import { ItemType } from '../../components/HeaderNavLink/HeaderNavLink'
+import styled from 'styled-components'
+import { DiscoverBanner } from '../../components/DiscoveBanner/DiscoverBanner'
 
-const HomePageStyled = styled('div')`
+const HowItWorksPageStyles = styled.article`
   background: linear-gradient(
-    rgba(255, 245, 241, 1),
-    rgba(254, 234, 227, 1),
-    rgba(255, 219, 204, 1)
+    180deg,
+    #fff5f1 0%,
+    #feeae3 45.27%,
+    #ffdbcc 94.31%
   );
-  background-repeat: no-repeat;
-
-  button:last-child {
+  button:first-child {
     display: none;
+  }
+  button:nth-of-type(2) {
+    margin-left: 0px;
   }
 `
 
-export interface HomePageProps {
-  item: Array<ItemType>
-  isPrimary: boolean
-  learnMoreButton: string
+export interface HowItWorksPageProps {
+  item: any
   imageUrl: string
+  isPrimary: true
+  learnMoreButton: string
+  learnMore: string
+  trustButton: string
   footerLinks: {
     summary: string
     links: { linkContent: string; linkUrl: string }[]
     id: string
   }[]
+  links: any
+  summary: string
   title: string
   subTitle: string
   primaryButton: string
   secondaryButton: string
 }
-
-export const HomePage: React.FC<HomePageProps> = ({
+export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
   item,
-  isPrimary,
-  learnMoreButton,
   imageUrl,
+  isPrimary,
   footerLinks,
+  learnMoreButton,
+  learnMore,
+  trustButton,
   title,
   subTitle,
   primaryButton,
   secondaryButton,
 }) => {
   return (
-    <HomePageStyled>
+    <HowItWorksPageStyles>
       <Header item={item} />
       <LearnMore
+        imageUrl={imageUrl}
         isPrimary={isPrimary}
         learnMoreButton={learnMoreButton}
-        imageUrl={imageUrl}
+        learnMore={learnMore}
+        trustButton={trustButton}
       />
+
       <DiscoverBanner
         title={title}
         subTitle={subTitle}
@@ -63,6 +71,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         isPrimary={isPrimary}
       />
       <PageFooter footerLinks={footerLinks} />
-    </HomePageStyled>
+    </HowItWorksPageStyles>
   )
 }

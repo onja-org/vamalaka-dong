@@ -33,7 +33,7 @@ export const loggeOut = [
     path: '#signup',
     imgSrc: account,
     alt: 'Sign up',
-    text: 'Sign Up',
+    text: 'Sign up',
   },
 ]
 export interface ItemType {
@@ -73,9 +73,5 @@ const Item = styled.li`
       }
     }
   }
-  &:first-of-type {
-    @media (max-width: 900px) {
-      display: none;
-    }
   }
 `
