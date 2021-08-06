@@ -15,7 +15,7 @@ export interface RoleSelectOption {
   label?: string
 }
 const ArrowRightIcon = styled.img`
-  display: none;
+  opacity: 0;
 `
 const RoleIcon = styled.div`
   background-image: url(${whitePolygonBg});
@@ -29,21 +29,17 @@ const RoleSelectWrapper = styled.div`
   border-radius: 6px;
   background: #ffffff;
   box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.06);
-  ${mediaQueries(null, 'sm')`
-    padding: 16px;
-  `};
   :hover {
     background: #f5f9ff;
     border: 1px solid #041d42;
-    padding: 27px;
     box-sizing: border-box;
     box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.04);
-    border-radius: 6px;
+    padding: 27px;
     ${RoleIcon} {
       background-image: url(${darkPolygonBg});
     }
     ${ArrowRightIcon} {
-      display: inline-block;
+      opacity: inherit;
     }
   }
 `

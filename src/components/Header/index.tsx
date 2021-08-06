@@ -35,8 +35,6 @@ export const Header: FC<LinkTypes> = ({ item }) => {
 
 const HeaderStyles = styled.header`
   margin: 0;
-  padding-block-start: 21px;
-  padding-inline: 15px;
 
   div {
     width: 100%;
@@ -45,8 +43,7 @@ const HeaderStyles = styled.header`
     align-items: center;
     gap: 50px;
 
-    ${mediaQueries(null, "lg")`
-      margin-block-start: 12px;
+    ${mediaQueries(null, 'lg')`
       display: flex;
       justify-content: space-between;
     `}

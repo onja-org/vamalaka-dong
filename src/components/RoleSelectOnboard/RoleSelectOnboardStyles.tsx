@@ -18,13 +18,15 @@ export const TopContainerStyles = styled.div`
   `};
 `
 export const MainContainer = styled.div`
-  max-width: 95%;
+  max-width: 90%;
   margin: auto;
+  margin-bottom: -125px;
   ${mediaQueries('lg', null)`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     max-width: 82%;
     margin: auto;
+    margin-bottom: -125px;
   `};
   ${mediaQueries(null, 'lg')`
     & > div:nth-child(1) {
@@ -36,20 +38,19 @@ export const RoleOptionContainer = styled.div`
   position: relative;
   background-color: #fff;
   ${mediaQueries('lg', null)`
-    padding: 85px 0;
-    margin: 0 5%;
+    padding: 85px 5%;
   `};
 `
 export const BuyerOption = styled.div`
   max-width: 426px;
   margin: auto;
-  padding: 14px;
+  padding: 15px;
   margin-bottom: 28px;
 `
 export const SellerOption = styled.div`
   max-width: 426px;
   margin: auto;
-  padding: 14px;
+  padding: 15px;
 `
 export const Container = styled.div`
   position: relative;
@@ -68,8 +69,7 @@ export const AccountContainer = styled.div`
   color: #979797;
   max-width: 426px;
   margin: auto;
-  margin-top: 16px;
-  padding-bottom: 14px;
+  padding: 48px 27px 14px 27px;
   ${mediaQueries('lg', null)`
     p {
       position: absolute;
@@ -80,7 +80,7 @@ export const AccountContainer = styled.div`
   `};
 `
 export const HeaderContainer = styled.div`
-  padding: 10px 16px 11px 10px;
+  padding: 0 16px 36px 14px;
 `
 export const ImageContainer = styled.div`
   background-color: #041d42;
@@ -124,8 +124,11 @@ export const FooterContainer = styled.div`
   footer > div {
     max-width: 90%;
     margin: auto;
-    padding-top: 30px;
+    padding-top: 220px;
     padding-bottom: 30px;
+    ${mediaQueries(null, 'sm')`
+      padding-top: 0px;
+  `};
   }
   ${mediaQueries('lg', null)`
     footer > div {
