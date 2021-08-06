@@ -1,18 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import { fonts } from '../../globalStyles/fonts'
-
 import Button from '../Button/Button'
 import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
-
 const LearnMoreContainer = styled.article`
   ${fonts}
   display: flex;
   flex-direction: column-reverse;
   margin-block-start: 15px;
   margin-block-end: 27px;
-
   h3 {
     font-family: 'Futura Std';
     font-weight: 400;
@@ -21,7 +17,6 @@ const LearnMoreContainer = styled.article`
     margin: 0;
     margin-block-start: 18px;
   }
-
   p {
     font-family: 'Garamond';
     font-weight: 400;
@@ -30,11 +25,9 @@ const LearnMoreContainer = styled.article`
     margin: 0;
     margin-block-start: 6px;
   }
-
   img {
     margin: 0;
   }
-
   ${mediaQueries('lg', null)`
         display: flex;
         flex-direction: row;
@@ -42,7 +35,6 @@ const LearnMoreContainer = styled.article`
         padding-inline: 80px;
         margin-block-end: 93px;
         margin-block-start: 51px;
-
         h3 {
             font-family: "Futura Std";
             font-weight: 400;
@@ -51,7 +43,6 @@ const LearnMoreContainer = styled.article`
             color: #041D42;
             margin: 0;
         }
-
         p {
             font-family: "Garamond";
             font-weight: 400;
@@ -61,43 +52,41 @@ const LearnMoreContainer = styled.article`
             margin: 0;
             margin-block-start: 35px;
         }
-
         img {
             max-width: 100%;
             margin-inline-start: 25px;
         }
     `}
-
   ${mediaQueries(null, 'lg')`
         padding-inline: 0;
         h3 {
             font-size: 40px;
         }
-
         p {
             font-size: 25px;
         }
     `}
-
     ${mediaQueries(null, 'lg')`
         padding-inline-start: 21px;
         padding-inline-end: 17px;
         gap: 0;
     `}
 `
-
+const LearnMoreStyle = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
 const ButtonContainer = styled.div`
   display: none;
-
   ${mediaQueries('lg', null)`
         display: block;
         margin-block-start: 45px;
-
         button {
             font-family: "Futura Std";
             font-weight: 400;
 
-            ::after {
+            button:first-child::after {
                 content: '→';
                 font-size: 32px;
                 vertical-align: middle;
@@ -105,11 +94,22 @@ const ButtonContainer = styled.div`
             }
         }
     `}
-
-  ${mediaQueries(null, 'lg')`
+  ${mediaQueries(null, 'lg')` 
         button {
             font-size: 18px;
-        } 
+        }
+    `}
+
+    ${mediaQueries(null, 'xl')`
+        button:last-child {
+          margin-inline-start: 0px;
+          margin-block-start: 12px;
+        }
+    `}
+       ${mediaQueries('xl', null)`
+        button:last-child {
+          margin-left: 20px;
+        }
     `}
 `
 
@@ -118,12 +118,15 @@ export interface LearnMoreProps {
   onClick?: () => void
   learnMoreButton: string
   imageUrl: string
+  learnMore?: string
+  trustButton?: string
 }
-
 export const LearnMore: React.FC<LearnMoreProps> = ({
   isPrimary,
   learnMoreButton,
   imageUrl,
+  learnMore,
+  trustButton,
 }) => {
   return (
     <LearnMoreContainer>
@@ -139,6 +142,8 @@ export const LearnMore: React.FC<LearnMoreProps> = ({
           </p>
           <ButtonContainer>
             <Button isPrimary={isPrimary} label={learnMoreButton} />
+            <Button isPrimary={isPrimary} label={learnMore} />
+            <Button label={trustButton} />
           </ButtonContainer>
         </div>
       </div>

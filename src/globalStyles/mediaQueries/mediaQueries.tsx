@@ -1,6 +1,7 @@
 export const breakPoints = {
   sm: 360,
   lg: 950,
+  xl: 1200,
 }
 
 export const mediaQueries = (

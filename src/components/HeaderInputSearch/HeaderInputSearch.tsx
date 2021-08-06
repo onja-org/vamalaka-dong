@@ -28,7 +28,7 @@ const Label = styled.label`
   gap: 12px;
 
   @media (min-width: 1200px) {
-    width: 70%;
+    width: 100%;
   }
 
   input {
@@ -43,6 +43,7 @@ const Label = styled.label`
     outline: none;
     &:focus {
       border: none;
+      outline: none;
     }
     &::-webkit-input-placeholder {
       ${fonts}
