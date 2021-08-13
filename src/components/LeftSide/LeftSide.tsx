@@ -4,13 +4,13 @@ import Baobab from '../LeftSide/images/baobab.png'
 import Farmer from '../LeftSide/images/farmer.png'
 
 const Container = styled.div`
-  margin: auto;
   background-size: cover;
   text-align: center;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   max-width: 583.5px;
+  margin: auto;
   height: 100%;
 
   p {
@@ -20,7 +20,8 @@ const Container = styled.div`
     font-size: 40px;
     line-height: 48px;
     max-width: 528px;
-    padding: 226px 4px 241px 4px;
+    padding: 226px 0 241px 0;
+    margin: auto;
   }
 `
 

@@ -43,11 +43,19 @@ const FooterContainer = styled('div')`
   details {
     padding: 0;
   }
+<<<<<<< HEAD
   ${mediaQueries(null, 'lg')`
+=======
+  @media(max-width: 640) {
+>>>>>>> e13f3dfb5b31e6bf8ed631652ff7025f731bfd81
     flex-direction: column;
     gap: 21px;
   `}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e13f3dfb5b31e6bf8ed631652ff7025f731bfd81
   ${mediaQueries('lg', null)`
     max-width: 1167px;
     min-width: auto;

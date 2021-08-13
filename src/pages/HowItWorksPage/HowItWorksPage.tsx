@@ -12,11 +12,13 @@ const HowItWorksPageStyles = styled.article`
     #feeae3 45.27%,
     #ffdbcc 94.31%
   );
-  button:first-child {
-    display: none;
-  }
-  button:nth-of-type(2) {
-    margin-left: 0px;
+  article {
+    button:first-child {
+      display: none;
+    }
+    button:nth-of-type(2) {
+      margin-left: 0px;
+    }
   }
 `
 
