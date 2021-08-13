@@ -15,8 +15,17 @@ const HomePageStyled = styled('div')`
   );
   background-repeat: no-repeat;
 
-  button:last-child {
-    display: none;
+  article {
+    button:first-child::after {
+      content: '→';
+      font-size: 32px;
+      vertical-align: middle;
+      margin-inline-start: 12px;
+    }
+
+    button:not(:first-child) {
+      display: none;
+    }
   }
 `
 

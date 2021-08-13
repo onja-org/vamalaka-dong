@@ -10,13 +10,12 @@ const inputStyles = css`
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 16.8px;
   display: flex;
   align-items: center;
   color: #979797;
-  text-transform: capitalize;
   outline: none;
-  border: 1px solid #041d42;
+  border: 1px solid #979797;
   border-radius: 6px;
 `
 const InputContainer = styled.div`
@@ -25,12 +24,16 @@ const InputContainer = styled.div`
   margin-bottom: 10px;
   .large {
     max-width: 320px;
-    padding-top: 12px;
-    padding-left: 27px;
-    padding-bottom: 12px;
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-bottom: 16px;
     padding-right: 76px;
-    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
     ${inputStyles}
+
+    :hover {
+      box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+      border: 1px solid #041D42;
+    }
   }
   .small {
     max-width: 240px;
@@ -86,5 +89,3 @@ export const Input: React.FC<InputProps> = ({ label, placeholder, name }) => {
     </InputContainer>
   )
 }
-
-export default Input

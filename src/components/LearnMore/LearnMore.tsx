@@ -1,34 +1,40 @@
 import React from 'react'
 import styled from 'styled-components'
 import { fonts } from '../../globalStyles/fonts'
-import Button from '../Button/Button'
-import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
+
+import Button from '../Button/Button';
+import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries';
+
 const LearnMoreContainer = styled.article`
-  ${fonts}
-  display: flex;
-  flex-direction: column-reverse;
-  margin-block-start: 15px;
-  margin-block-end: 27px;
-  h3 {
-    font-family: 'Futura Std';
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 30px;
-    margin: 0;
-    margin-block-start: 18px;
-  }
-  p {
-    font-family: 'Garamond';
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 22.5px;
-    margin: 0;
-    margin-block-start: 6px;
-  }
-  img {
-    margin: 0;
-  }
-  ${mediaQueries('lg', null)`
+    ${fonts}
+    display: flex;
+    flex-direction: column-reverse;
+    margin-block-start: 15px;
+    margin-block-end: 27px;
+
+        h3 {
+            font-family: "Futura Std";
+            font-weight: 400;
+            font-size: 25px;
+            line-height: 30px;
+            margin: 0;
+            margin-block-start: 18px;
+        }
+
+        p {
+            font-family: "Garamond";
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 22.5px;
+            margin: 0;
+            margin-block-start: 6px;
+        }
+
+        img {
+            margin: 0;
+        }
+
+    ${mediaQueries("lg", null)`
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -57,41 +63,35 @@ const LearnMoreContainer = styled.article`
             margin-inline-start: 25px;
         }
     `}
-  ${mediaQueries(null, 'lg')`
+
+    ${mediaQueries(null, "lg")`
         padding-inline: 0;
         h3 {
-            font-size: 40px;
+            font-size: 25px;
+            line-height: 30px
         }
         p {
-            font-size: 25px;
+            font-size: 20px;
+            line-height: 22.5px;
         }
     `}
-    ${mediaQueries(null, 'lg')`
+
+    ${mediaQueries(null, "lg")`
         padding-inline-start: 21px;
         padding-inline-end: 17px;
         gap: 0;
     `}
-`
-const LearnMoreStyle = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`
+`;
+
 const ButtonContainer = styled.div`
-  display: none;
-  ${mediaQueries('lg', null)`
+    display: none;
+    
+    ${mediaQueries("lg", null)`
         display: block;
         margin-block-start: 45px;
         button {
             font-family: "Futura Std";
             font-weight: 400;
-
-            button:first-child::after {
-                content: '→';
-                font-size: 32px;
-                vertical-align: middle;
-                margin-inline-start: 12px;
-            }
         }
     `}
   ${mediaQueries(null, 'lg')` 
@@ -111,7 +111,7 @@ const ButtonContainer = styled.div`
           margin-left: 20px;
         }
     `}
-`
+`;
 
 export interface LearnMoreProps {
   isPrimary?: boolean

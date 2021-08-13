@@ -46,7 +46,7 @@ const DetailsStyles = styled.details`
     display: none;
   }
 
-  ${mediaQueries(null, 'lg')`
+  ${mediaQueries(null, "lg")`
   text-align: start;
 
   a {
@@ -83,8 +83,9 @@ const DetailsStyles = styled.details`
     transform: rotate(180deg);
   }
   `}
+    
 
-  ${mediaQueries(null, 'lg')`
+  ${mediaQueries(null, "lg")`
     summary {
       :first-child {
         margin-block-start: 28px;
