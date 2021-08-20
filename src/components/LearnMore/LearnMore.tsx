@@ -97,17 +97,8 @@ const ButtonContainer = styled.div`
   ${mediaQueries(null, 'lg')` 
         button {
             font-size: 18px;
-        }
-    `}
-
-    ${mediaQueries(null, 'xl')`
-        button:last-child {
-          margin-inline-start: 0px;
-          margin-block-start: 12px;
-        }
-    `}
-       ${mediaQueries('xl', null)`
-        button:last-child {
+        } 
+        :last-child {
           margin-left: 20px;
         }
     `}
