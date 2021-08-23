@@ -23,16 +23,15 @@ const InputContainer = styled.div`
   flex-direction: column;
   margin-bottom: 10px;
   .large {
-    max-width: 320px;
     padding-top: 15px;
     padding-left: 30px;
     padding-bottom: 16px;
-    padding-right: 76px;
+    padding-right: 60px;
     ${inputStyles}
 
     :hover {
       box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
-      border: 1px solid #041D42;
+      border: 1px solid #041d42;
     }
   }
   .small {
@@ -44,17 +43,17 @@ const InputContainer = styled.div`
     box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
     ${inputStyles}
   }
-  .labelStyle {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    color: #979797;
-    padding-bottom: 6px;
-    align-items: start;
-    font-family: 'Futura Std', Arial, Helvetica, sans-serif;
-  }
+`
+const Label = styled.label`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  color: #979797;
+  padding-bottom: 6px;
+  align-items: start;
+  font-family: 'Futura Std', Arial, Helvetica, sans-serif;
 `
 const InputElement = styled.input`
   ${fonts}
@@ -76,16 +75,32 @@ const InputElement = styled.input`
   }
 `
 export interface InputProps {
-  label: string
-  placeholder: string
-  name: string
+  name?: string
+  label?: string
+  inputType?: string
+  inputValue?: string
+  placeholder?: string
+  onChange?: React.ChangeEventHandler<HTMLInputElement>
 }
 
-export const Input: React.FC<InputProps> = ({ label, placeholder, name }) => {
+export const Input: React.FC<InputProps> = ({
+  name,
+  label,
+  onChange,
+  inputType,
+  inputValue,
+  placeholder,
+}) => {
   return (
     <InputContainer>
-      <label className='labelStyle'>{label}</label>
-      <InputElement placeholder={placeholder} className={name} />
+      <Label>{label}</Label>
+      <InputElement
+        className={name}
+        type={inputType}
+        value={inputValue}
+        placeholder={placeholder}
+        onChange={onChange}
+      />
     </InputContainer>
   )
 }

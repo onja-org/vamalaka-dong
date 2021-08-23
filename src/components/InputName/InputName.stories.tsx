@@ -12,14 +12,20 @@ const Template: Story<InputProps> = (args) => <Input {...args} />
 
 export const largeInput = Template.bind({})
 largeInput.args = {
-  placeholder: 'Invictus Innocent',
-  label: 'Your full name',
   name: 'large',
+  onChange: () => null,
+  inputType: 'password',
+  inputValue: '',
+  label: 'Your email address',
+  placeholder: 'Invictus Innocent',
 }
 
 export const smallInput = Template.bind({})
 smallInput.args = {
-  placeholder: 'Invictus Innocent',
-  label: 'Your full name',
   name: 'small',
+  onChange: () => null,
+  inputType: 'password',
+  inputValue: '',
+  label: 'Your email address',
+  placeholder: 'Invictus Innocent',
 }

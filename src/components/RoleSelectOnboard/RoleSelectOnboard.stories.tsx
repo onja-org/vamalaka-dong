@@ -10,61 +10,6 @@ export default {
   },
 } as Meta
 
-const footerLinks = [
-  {
-    summary: 'Madamada',
-    links: [
-      { linkContent: 'about', linkUrl: '#about' },
-      { linkContent: 'careers', linkUrl: '#careers' },
-      { linkContent: 'pricing', linkUrl: '#pricing' },
-      { linkContent: 'FAQ', linkUrl: '#faq' },
-    ],
-    id: '1',
-  },
-  {
-    summary: 'Madamada',
-    links: [
-      { linkContent: 'about', linkUrl: '#about' },
-      { linkContent: 'careers', linkUrl: '#careers' },
-      { linkContent: 'pricing', linkUrl: '#pricing' },
-      { linkContent: 'FAQ', linkUrl: '#faq' },
-    ],
-    id: '2',
-  },
-  {
-    summary: 'Madamada',
-    links: [
-      { linkContent: 'about', linkUrl: '#about' },
-      { linkContent: 'careers', linkUrl: '#careers' },
-      { linkContent: 'pricing', linkUrl: '#pricing' },
-      { linkContent: 'FAQ', linkUrl: '#faq' },
-    ],
-    id: '3',
-  },
-  {
-    summary: 'Madamada',
-    links: [
-      { linkContent: 'about', linkUrl: '#about' },
-      { linkContent: 'careers', linkUrl: '#careers' },
-      { linkContent: 'pricing', linkUrl: '#pricing' },
-      { linkContent: 'FAQ', linkUrl: '#faq' },
-    ],
-    id: '4',
-  },
-  {
-    summary: 'Madamada',
-    links: [
-      { linkContent: 'about', linkUrl: '#about' },
-      { linkContent: 'careers', linkUrl: '#careers' },
-      { linkContent: 'pricing', linkUrl: '#pricing' },
-      { linkContent: 'FAQ', linkUrl: '#faq' },
-    ],
-    id: '5',
-  },
-]
-
-const Template: Story<Props> = (args) => <RoleSelectOnboard {...args} />
+const Template: Story<Props> = () => <RoleSelectOnboard />
 
 export const RoleSelectOnBoardStory = Template.bind({})
-
-RoleSelectOnBoardStory.args = { footerLinks }

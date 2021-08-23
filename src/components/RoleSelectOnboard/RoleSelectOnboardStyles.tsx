@@ -69,7 +69,6 @@ export const AccountContainer = styled.div`
   color: #979797;
   max-width: 426px;
   margin: auto;
-  padding: 48px 27px 14px 27px;
   ${mediaQueries('lg', null)`
     p {
       position: absolute;
@@ -77,6 +76,9 @@ export const AccountContainer = styled.div`
       top: 22px;
       right: 27px;
     }
+  `};
+  ${mediaQueries(null, 'lg')`
+    padding: 48px 27px 14px 27px;
   `};
 `
 export const HeaderContainer = styled.div`
@@ -91,7 +93,7 @@ export const ImageContainer = styled.div`
     flex-basis: 50%;
   `};
   p {
-    margin: 0;
+    margin: auto;
   }
 `
 export const JoinUsHeader = styled.h3`

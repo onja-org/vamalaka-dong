@@ -3,7 +3,6 @@ import React from 'react'
 interface SellerOption {
   isMouseHover: boolean
 }
-
 const Seller: React.FC<SellerOption> = ({ isMouseHover }) => {
   return (
     <svg

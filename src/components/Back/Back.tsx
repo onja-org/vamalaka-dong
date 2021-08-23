@@ -18,8 +18,8 @@ const backIcon = (
 
 export interface BackProps {
   size?: 'small' | 'medium' | 'large'
-  label: string
-  href: string
+  label?: string
+  href?: string
 }
 
 const BackLink = styled.a`
