@@ -19,10 +19,10 @@ describe('Buttons Screen', () => {
     )
     cy.get('div')
   })
-  it('has Login component', () => {
-    cy.contains('Login')
+  it('has LoginReminder component', () => {
+    cy.contains('LoginReminder')
     cy.visit(
-      "http://localhost:6006/iframe.html?id=components-roleselectonboard--role-select-on-board-story&viewMode=story"
+      'http://localhost:6006/iframe.html?id=components-roleselectonboard--role-select-on-board-story&viewMode=story'
     )
     cy.get('a').should('have.attr', 'href')
   })

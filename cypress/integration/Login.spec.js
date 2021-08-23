@@ -1,30 +1,42 @@
 /// <reference types="cypress" />
-
-const HAVE_SIGNEDUP_PAGE =
-  'http://localhost:6006/iframe.html?id=login-login--already-have-an-account&args=&viewMode=story'
-
-const NOT_USER_YET_PAGE =
-  'http://localhost:6006/iframe.html?id=login-login--not-user&args=&viewMode=story'
-
-describe('Login Storybook', () => {
-  beforeEach('visits storybook', () => {
+describe('Storybook Components', () => {
+  beforeEach('visits site', () => {
     cy.visit('http://localhost:6006')
     cy.contains('Login', { timeout: 20000 })
   })
-
-  it('Has the have already signedup text', () => {
+  it('has Login component', () => {
     cy.contains('Login')
-    cy.visit(HAVE_SIGNEDUP_PAGE)
-    cy.contains('Already have an account?Sign In')
+    cy.visit(
+      'http://localhost:6006/?path=/story/components-login--login-onboard-story'
+    )
+    cy.get('div')
   })
 
-  it('Has the not yet a user text', () => {
-    cy.contains('Login')
-    cy.visit(NOT_USER_YET_PAGE)
-    cy.contains('Not a user yet?Sign Up')
+  it('has LeftSide component', () => {
+    cy.contains('LeftSide')
+    cy.visit(
+      'http://localhost:6006/?path=/story/components-login--login-onboard-story'
+    )
   })
 
-  it('Has the anchor an href attribute', () => {
-    cy.get('a').should('have.attr', 'href')
+  it('has Back component', () => {
+    cy.contains('Back')
+    cy.visit(
+      'http://localhost:6006/?path=/story/components-login--login-onboard-story'
+    )
+  })
+
+  it('has Input component', () => {
+    cy.contains('Input')
+    cy.visit(
+      'http://localhost:6006/?path=/story/components-login--login-onboard-story'
+    )
+  })
+
+  it('has Buttons component', () => {
+    cy.contains('Button')
+    cy.visit(
+      'http://localhost:6006/?path=/story/components-login--login-onboard-story'
+    )
   })
 })

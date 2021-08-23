@@ -10,7 +10,6 @@ describe('Input Name', () => {
     cy.visit(
       'http://localhost:6006/iframe.html?id=input-input-name--large-input&args=&viewMode=story'
     )
-    cy.get('label').contains('Your full name')
-    cy.get('input').should('have.attr', 'placeholder')
+    cy.get('input').should('have.attr', 'placeholder', 'Invictus Innocent')
   })
 })

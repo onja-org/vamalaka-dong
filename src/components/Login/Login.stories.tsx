@@ -1,23 +1,12 @@
 import React from 'react'
+import { Login } from './Login'
 import { Story, Meta } from '@storybook/react'
 
-import { Login, LoginProps } from './Login'
-
 export default {
-  title: 'Login/Login',
+  title: 'Components/Login',
   component: Login,
 } as Meta
 
-const LoginStoryBook: Story<LoginProps> = (args) => <Login {...args} />
+const Template: Story = (args) => <Login {...args} />
 
-export const AlreadyHaveAnAccount = LoginStoryBook.bind({})
-AlreadyHaveAnAccount.args = {
-  isSignedUp: true,
-  href: './',
-}
-
-export const NotUser = LoginStoryBook.bind({})
-NotUser.args = {
-  isSignedUp: false,
-  href: './',
-}
+export const LoginOnboardStory = Template.bind({})

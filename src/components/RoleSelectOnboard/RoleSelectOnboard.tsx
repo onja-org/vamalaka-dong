@@ -12,14 +12,13 @@ import {
 } from './RoleSelectOnboardStyles'
 
 import { DescriptionOffer } from '../DescriptionOffer/descriptionOffer'
-import { Props } from '../PageFooter/PageFooter'
 import { Option } from '../RoleSelectOption/RoleSelectOption'
 import userIcon from '../../stories/assets/user.svg'
 import briefcaseIcon from '../../stories/assets/briefcase.svg'
-import { Login } from '../Login/Login'
+import { LoginReminder } from '../LoginReminder/LoginReminder'
 import { LeftSide } from '../LeftSide/LeftSide'
 
-export const RoleSelectOnboard: React.FC<Props> = () => {
+export const RoleSelectOnboard: React.FC = () => {
   return (
     <MainContainer>
       <ImageContainer>
@@ -53,7 +52,7 @@ export const RoleSelectOnboard: React.FC<Props> = () => {
           />
         </SellerOption>
         <AccountContainer>
-          <Login isSignedUp={true} href='./' />
+          <LoginReminder isSignedUp={true} href='./' />
         </AccountContainer>
       </RoleOptionContainer>
     </MainContainer>

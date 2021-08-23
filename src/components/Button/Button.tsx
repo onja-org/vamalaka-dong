@@ -21,7 +21,7 @@ const ButtonStyled = styled.button<ButtonProps>`
   padding: ${(props) =>
     props.isPrimary ? '12px 20px 11px 20px' : '12px 14px 11px 14px'};
   border: ${(props) => (props.isPrimary ? 'none' : '2px solid #041d42')};
-    props.isPrimary ? '12px 20px 11px 20px' : '12px 28px 11px 28px'};
+    props.isPrimary ? '12px 20px 11px 20px' : '12px 14px 11px 14px'};
   cursor: pointer;
   &:disabled {
     color: '#FFFFFF';
