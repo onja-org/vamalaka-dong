@@ -2,42 +2,45 @@ import React from 'react'
 import styled from 'styled-components'
 import { fonts } from '../../globalStyles/fonts'
 
-import Button from '../Button/Button';
-import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries';
+import Button from '../Button/Button'
+import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
 
 const LearnMoreContainer = styled.article`
-    ${fonts}
-    display: flex;
-    flex-direction: column-reverse;
-    margin-block-start: 15px;
-    margin-block-end: 27px;
+  ${fonts}
+  display: flex;
+  flex-direction: column-reverse;
+  margin-block-start: 15px;
+  margin-block-end: 27px;
 
-        h3 {
-            font-family: "Futura Std";
-            font-weight: 400;
-            font-size: 25px;
-            line-height: 30px;
-            margin: 0;
-            margin-block-start: 18px;
-        }
+  h3 {
+    font-family: 'Futura Std';
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    margin: 0;
+    margin-block-start: 18px;
+    color: #041d42;
+    text-align: left;
+  }
 
-        p {
-            font-family: "Garamond";
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 22.5px;
-            margin: 0;
-            margin-block-start: 6px;
-        }
+  p {
+    font-family: 'Garamond';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22.5px;
+    margin: 0;
+    margin-block-start: 6px;
+    color: #041d42;
+    text-align: left;
+  }
 
-        img {
-            margin: 0;
-        }
+  img {
+    margin: 0;
+  }
 
-    ${mediaQueries("lg", null)`
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+  ${mediaQueries('lg', null)`
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         padding-inline: 80px;
         margin-block-end: 93px;
         margin-block-start: 51px;
@@ -46,7 +49,6 @@ const LearnMoreContainer = styled.article`
             font-weight: 400;
             font-size: 50px;
             line-height: 60px;
-            color: #041D42;
             margin: 0;
         }
         p {
@@ -54,7 +56,6 @@ const LearnMoreContainer = styled.article`
             font-weight: 400;
             font-size: 35px;
             line-height: 39.38px;
-            color: #041D42;
             margin: 0;
             margin-block-start: 35px;
         }
@@ -64,7 +65,7 @@ const LearnMoreContainer = styled.article`
         }
     `}
 
-    ${mediaQueries(null, "lg")`
+  ${mediaQueries(null, 'lg')`
         padding-inline: 0;
         h3 {
             font-size: 25px;
@@ -76,19 +77,20 @@ const LearnMoreContainer = styled.article`
         }
     `}
 
-    ${mediaQueries(null, "lg")`
+    ${mediaQueries(null, 'lg')`
         padding-inline-start: 21px;
         padding-inline-end: 17px;
         gap: 0;
     `}
-`;
+`
 
 const ButtonContainer = styled.div`
-    display: none;
-    
-    ${mediaQueries("lg", null)`
+  display: none;
+
+  ${mediaQueries('lg', null)`
         display: block;
         margin-block-start: 45px;
+        display: flex;
         button {
             font-family: "Futura Std";
             font-weight: 400;
@@ -111,7 +113,7 @@ const ButtonContainer = styled.div`
           margin-left: 20px;
         }
     `}
-`;
+`
 
 export interface LearnMoreProps {
   isPrimary?: boolean

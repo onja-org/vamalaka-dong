@@ -39,13 +39,12 @@ const HeaderStyles = styled.header`
   padding-inline: 15px;
 
   div {
-    width: 100%;
     display: grid;
     grid-template-columns: 346px 1fr 1fr;
     align-items: center;
     gap: 50px;
 
-    ${mediaQueries(null, "lg")`
+    ${mediaQueries(null, 'lg')`
       margin-block-start: 12px;
       display: flex;
       justify-content: space-between;
