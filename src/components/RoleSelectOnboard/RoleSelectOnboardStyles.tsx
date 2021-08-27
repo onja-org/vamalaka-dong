@@ -24,7 +24,7 @@ export const MainContainer = styled.div`
   ${mediaQueries('lg', null)`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    max-width: 82%;
+    max-width: 85%;
     margin: auto;
     margin-bottom: -125px;
   `};
@@ -37,6 +37,9 @@ export const MainContainer = styled.div`
 export const RoleOptionContainer = styled.div`
   position: relative;
   background-color: #fff;
+  a {
+    text-decoration: none;
+  }
   ${mediaQueries('lg', null)`
     padding: 85px 5%;
   `};

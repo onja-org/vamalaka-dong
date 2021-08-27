@@ -66,6 +66,7 @@ const RoleTitle = styled.h6`
   font-weight: normal;
   margin: 0;
   color: #041d42;
+  text-align: start;
 `
 const RoleText = styled.p`
   color: #979797;
@@ -73,6 +74,7 @@ const RoleText = styled.p`
   max-width: 161px;
   line-height: 17px;
   margin: 0;
+  text-align: start;
   margin-block-start: 4px;
   ${mediaQueries(null, 'sm')`
     max-width: 239px;

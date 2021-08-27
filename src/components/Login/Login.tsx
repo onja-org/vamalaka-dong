@@ -13,15 +13,14 @@ const FlexLayout = css`
   display: flex;
   flex-direction: column;
 `
-const MainContainer = styled.div`
+const MainContainer = styled.article`
   max-width: 90%;
   margin: auto;
   margin-bottom: -125px;
-  background: blue;
   ${mediaQueries('lg', null)`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    max-width: 82%;
+    max-width: 85%;
     margin: auto;
     margin-bottom: -125px;
   `};
@@ -31,7 +30,7 @@ const MainContainer = styled.div`
     }
   `};
 `
-const LoginOnboardContainer = styled.div`
+const LoginContainer = styled.div`
   font-family: 'Futura Std', Arial, Helvetica, sans-serif;
   font-style: normal;
   padding: 54px 13px 34px 13px;
@@ -61,14 +60,14 @@ const LoginForm = styled.form`
   margin: auto;
   ${mediaQueries('lg', null)`
     align-self: center;
-    max-width: 90%;
+    max-width: 85%;
     margin: auto;
   `};
 `
 const LoginFormContent = styled.div`
   ${FlexLayout}
   gap: 14px;
-  margin-bottom: 271px;
+  margin-bottom: 200px;
   ${mediaQueries('lg', null)`
     margin-bottom: 91px;
   `};
@@ -138,7 +137,7 @@ export const Login: React.FC = () => {
       <ImageContainer>
         <LeftSide backgroundImage='Farmer' />
       </ImageContainer>
-      <LoginOnboardContainer>
+      <LoginContainer>
         <Header>
           <Back href='/' label='Back' />
           <HeaderContent>
@@ -175,7 +174,7 @@ export const Login: React.FC = () => {
             <Button label='Login with Google' />
           </LoginButtonContainer>
         </LoginForm>
-      </LoginOnboardContainer>
+      </LoginContainer>
     </MainContainer>
   )
 }

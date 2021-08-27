@@ -10,13 +10,12 @@ import {
   SubHeadingWrapper,
   DescriptionOfferWrapper,
 } from './RoleSelectOnboardStyles'
-
-import { DescriptionOffer } from '../DescriptionOffer/descriptionOffer'
-import { Option } from '../RoleSelectOption/RoleSelectOption'
-import userIcon from '../../stories/assets/user.svg'
-import briefcaseIcon from '../../stories/assets/briefcase.svg'
-import { LoginReminder } from '../LoginReminder/LoginReminder'
 import { LeftSide } from '../LeftSide/LeftSide'
+import userIcon from '../../stories/assets/user.svg'
+import { Option } from '../RoleSelectOption/RoleSelectOption'
+import { LoginReminder } from '../LoginReminder/LoginReminder'
+import briefcaseIcon from '../../stories/assets/briefcase.svg'
+import { DescriptionOffer } from '../DescriptionOffer/descriptionOffer'
 
 export interface RoleSelectorProps {
   handleClick: (userRole: USER_ROLE) => void,

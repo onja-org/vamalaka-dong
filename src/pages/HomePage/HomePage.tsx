@@ -5,7 +5,8 @@ import { Header } from '../../components/Header'
 import { LearnMore } from '../../components/LearnMore/LearnMore'
 import { DiscoverBanner } from '../../components/DiscoveBanner/DiscoverBanner'
 import { PageFooter } from '../../components/PageFooter/PageFooter'
-import { ItemType } from '../../components/HeaderNavLink/HeaderNavLink'
+import { loggeOut } from '../../components/HeaderNavLink/HeaderNavLink'
+import imageUrl from '../../components/LearnMore/image/peer.svg'
 
 const HomePageStyled = styled('div')`
   background: linear-gradient(
@@ -29,47 +30,76 @@ const HomePageStyled = styled('div')`
   }
 `
 
-export interface HomePageProps {
-  item: Array<ItemType>
-  isPrimary: boolean
-  learnMoreButton: string
-  imageUrl: string
-  footerLinks: {
-    summary: string
-    links: { linkContent: string; linkUrl: string }[]
-    id: string
-  }[]
-  title: string
-  subTitle: string
-  primaryButton: string
-  secondaryButton: string
-}
+const footerLinks = [
+  {
+    summary: 'Madamada',
+    links: [
+      { linkContent: 'about', linkUrl: '#about' },
+      { linkContent: 'careers', linkUrl: '#careers' },
+      { linkContent: 'pricing', linkUrl: '#pricing' },
+      { linkContent: 'FAQ', linkUrl: '#faq' },
+      { linkContent: 'About', linkUrl: '#about' },
+    ],
+    id: '1',
+  },
+  {
+    summary: 'Vamalaka',
+    links: [
+      { linkContent: 'about', linkUrl: '#about' },
+      { linkContent: 'careers', linkUrl: '#careers' },
+      { linkContent: 'pricing', linkUrl: '#pricing' },
+      { linkContent: 'FAQ', linkUrl: '#faq' },
+    ],
+    id: '2',
+  },
+  {
+    summary: 'LearnGasy',
+    links: [
+      { linkContent: 'about', linkUrl: '#about' },
+      { linkContent: 'careers', linkUrl: '#careers' },
+      { linkContent: 'pricing', linkUrl: '#pricing' },
+      { linkContent: 'FAQ', linkUrl: '#faq' },
+      { linkContent: 'Others', linkUrl: '#others' },
+    ],
+    id: '3',
+  },
+  {
+    summary: 'Vamalaka Developers',
+    links: [
+      { linkContent: 'about', linkUrl: '#about' },
+      { linkContent: 'careers', linkUrl: '#careers' },
+      { linkContent: 'pricing', linkUrl: '#pricing' },
+      { linkContent: 'FAQ', linkUrl: '#faq' },
+    ],
+    id: '4',
+  },
+  {
+    summary: 'Others',
+    links: [
+      { linkContent: 'about', linkUrl: '#about' },
+      { linkContent: 'careers', linkUrl: '#careers' },
+      { linkContent: 'pricing', linkUrl: '#pricing' },
+      { linkContent: 'FAQ', linkUrl: '#faq' },
+    ],
+    id: '5',
+  },
+]
 
-export const HomePage: React.FC<HomePageProps> = ({
-  item,
-  isPrimary,
-  learnMoreButton,
-  imageUrl,
-  footerLinks,
-  title,
-  subTitle,
-  primaryButton,
-  secondaryButton,
-}) => {
+export const HomePage: React.FC = () => {
   return (
     <HomePageStyled>
-      <Header item={item} />
+      <Header item={loggeOut} />
       <LearnMore
-        isPrimary={isPrimary}
-        learnMoreButton={learnMoreButton}
+        isPrimary={true}
+        learnMoreButton='Learn how it works'
         imageUrl={imageUrl}
       />
       <DiscoverBanner
-        title={title}
-        subTitle={subTitle}
-        primaryButton={primaryButton}
-        secondaryButton={secondaryButton}
-        isPrimary={isPrimary}
+        title='Discover amazing products and profit from a truly fair market:'
+        subTitle='This is a subtitle that is very informative'
+        primaryButton='Discover Products'
+        secondaryButton='Become a member'
+        isPrimary={true}
       />
       <PageFooter footerLinks={footerLinks} />
     </HomePageStyled>

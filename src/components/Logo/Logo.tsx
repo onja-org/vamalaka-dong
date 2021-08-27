@@ -20,14 +20,9 @@ const Container = styled.h1`
   text-align: start;
 `
 const Image = styled.img`
-  max-width: 100%;
   margin-inline-start: 0;
-
-  @media (min-width: 362px) {
-    width: 242px;
-  }
-
-  @media (min-width: 834px) {
-    width: 346px;
+  @media (max-width: 450px) {
+    width: 100%;
+    margin: auto;
   }
 `
