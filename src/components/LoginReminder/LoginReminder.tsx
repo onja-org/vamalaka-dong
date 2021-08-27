@@ -24,11 +24,15 @@ export const LoginReminder: React.FC<LoginReminderProps> = ({
         {loginEscapeTexts}
         <a href={href}>{signUpOrSignInTexts}</a>
       </p>
+      <p>Step 01/02</p>
     </LoginContainer>
   )
 }
 
 const LoginContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   p {
     ${fonts}
     font-family: 'Futura Std', Arial, Helvetica, sans-serif;
@@ -43,5 +47,4 @@ const LoginContainer = styled.div`
       text-decoration: underline;
       padding-left: 5px;
     }
-  }
 `

@@ -1,34 +1,27 @@
-import React, {useState} from "react";
+import React, { useState } from 'react'
 
-import GenericPage from "../GenericPage";
-import { RoleSelectOnboard, USER_ROLE } from "../../components/RoleSelectOnboard/RoleSelectOnboard";
-import { RegistrationOnboarding } from "../../components/RegistrationOnboarding/RegistrationOnboarding";
+import GenericPage from '../GenericPage'
+import {
+  RoleSelectOnboard,
+  USER_ROLE,
+} from '../../components/RoleSelectOnboard/RoleSelectOnboard'
+import { Registration } from '../../components/Registration/Registration'
 
-export interface OnboardingPageProps {
-    isChecked: boolean,
-    isPrimary: boolean,
-}
+export const OnboardingPage: React.FC = () => {
+  const [selectedRole, setSelectedRole] = useState(USER_ROLE.UNSELECTED)
 
-export const OnboardingPage: React.FC<OnboardingPageProps> = ({ 
-    isChecked,
-    isPrimary,
-}) => {
-    const [selectedRole, setSelectedRole] = useState(USER_ROLE.UNSELECTED);
-
-    function handleClick(userRole: USER_ROLE) {
-        setSelectedRole(userRole);
-    }
-    return (
-        <GenericPage>
-            {
-                selectedRole
-                    ? <RegistrationOnboarding 
-                        isChecked={isChecked}
-                        isPrimary={isPrimary}
-                        role={selectedRole}
-                     />
-                    : <RoleSelectOnboard handleClick={handleClick} />
-            }
-        </GenericPage>
-    )
+  function handleClick(userRole: USER_ROLE) {
+    setSelectedRole(userRole)
+  }
+  return (
+    <GenericPage>
+      {selectedRole ? (
+        <Registration
+        //  role={selectedRole}
+        />
+      ) : (
+        <RoleSelectOnboard handleClick={handleClick} />
+      )}
+    </GenericPage>
+  )
 }

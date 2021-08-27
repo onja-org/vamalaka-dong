@@ -37,11 +37,8 @@ export const MainContainer = styled.div`
 export const RoleOptionContainer = styled.div`
   position: relative;
   background-color: #fff;
-  a {
-    text-decoration: none;
-  }
   ${mediaQueries('lg', null)`
-    padding: 85px 5%;
+    padding: 16px 21px;
   `};
 `
 export const BuyerOption = styled.div`
@@ -70,11 +67,8 @@ export const Container = styled.div`
 `
 export const AccountContainer = styled.div`
   color: #979797;
-  max-width: 426px;
-  margin: auto;
   ${mediaQueries('lg', null)`
     p {
-      position: absolute;
       margin: 0;
       top: 22px;
       right: 27px;

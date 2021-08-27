@@ -18,22 +18,27 @@ import briefcaseIcon from '../../stories/assets/briefcase.svg'
 import { DescriptionOffer } from '../DescriptionOffer/descriptionOffer'
 
 export interface RoleSelectorProps {
-  handleClick: (userRole: USER_ROLE) => void,
+  handleClick: (userRole: USER_ROLE) => void
 }
 
 export enum USER_ROLE {
   SELLER = 'seller',
   BUYER = 'buyer',
-  UNSELECTED = ''
+  UNSELECTED = '',
 }
 
-export const RoleSelectOnboard: React.FC<RoleSelectorProps> = ({handleClick}) => {
+export const RoleSelectOnboard: React.FC<RoleSelectorProps> = ({
+  handleClick,
+}) => {
   return (
     <MainContainer>
       <ImageContainer>
         <LeftSide backgroundImage='Baobab' />
       </ImageContainer>
       <RoleOptionContainer>
+        <AccountContainer>
+          <LoginReminder isSignedUp={true} href='./' />
+        </AccountContainer>
         <SubHeadingWrapper>
           <JoinUsHeader>Join us</JoinUsHeader>
           <DescriptionOfferWrapper>
@@ -60,9 +65,6 @@ export const RoleSelectOnboard: React.FC<RoleSelectorProps> = ({handleClick}) =>
             alt='Briefcase icon'
           />
         </SellerOption>
-        <AccountContainer>
-          <LoginReminder isSignedUp={true} href='./' />
-        </AccountContainer>
       </RoleOptionContainer>
     </MainContainer>
   )
