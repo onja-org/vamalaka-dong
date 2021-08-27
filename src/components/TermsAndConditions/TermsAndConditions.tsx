@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { fonts } from '../../globalStyles/fonts'
 import checkedSvg from './checked.svg'
@@ -8,6 +9,7 @@ export interface TermsAndConditionsProps {
   href: string
   serviceTerms: string
   isChecked?: boolean
+  setIsChecked?: () => void
 }
 
 const TermsAndConditionsStyle = styled.label`
@@ -71,9 +73,13 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
   termsLabel,
   href,
   serviceTerms,
-  isChecked,
   ...props
 }) => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxClick = () => {
+    setIsChecked(!isChecked);
+  }
   return (
     <TermsAndConditionsStyle {...props}>
       <Checkbox>
@@ -83,6 +89,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
           className='checkbox'
           id='termAndCondition'
           checked={isChecked}
+          onChange={handleCheckboxClick}
         />
         <span className='checkMark'></span>
       </Checkbox>

@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { RoleSelectOnboard } from './RoleSelectOnboard'
-import { Props } from '../PageFooter/PageFooter'
+import { RoleSelectOnboard, RoleSelectorProps } from './RoleSelectOnboard'
 
 export default {
   title: 'Components/RoleSelectOnboard',
@@ -10,6 +9,6 @@ export default {
   },
 } as Meta
 
-const Template: Story<Props> = () => <RoleSelectOnboard />
+const Template: Story<RoleSelectorProps> = () => <RoleSelectOnboard handleClick={() => null} />
 
 export const RoleSelectOnBoardStory = Template.bind({})

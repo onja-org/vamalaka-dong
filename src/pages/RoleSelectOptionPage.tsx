@@ -5,7 +5,7 @@ import { RoleSelectOnboard } from '../components/RoleSelectOnboard/RoleSelectOnb
 const RoleSelectOnboardPage: React.FC = () => {
   return (
     <GenericPage>
-      <RoleSelectOnboard />
+      <RoleSelectOnboard handleClick={() => null} />
     </GenericPage>
   )
 }
