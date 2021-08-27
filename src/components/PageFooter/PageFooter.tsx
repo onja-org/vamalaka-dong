@@ -33,29 +33,16 @@ const Footer = styled('footer')`
 const FooterContainer = styled('div')`
   display: flex;
   flex-wrap: wrap;
-  max-width: auto;
+  justify-content: space-between;
   padding-top: 267px;
   padding-bottom: 59px;
   padding-left: 15px;
   padding-right: 15px;
-  gap: 82.5px;
-
+  max-width: 85%;
+  margin: auto;
   details {
     padding: 0;
   }
-<<<<<<< HEAD
-  ${mediaQueries(null, 'lg')`
-=======
-  @media(max-width: 640) {
->>>>>>> e13f3dfb5b31e6bf8ed631652ff7025f731bfd81
-    flex-direction: column;
-    gap: 21px;
-  `}
-
-<<<<<<< HEAD
-=======
-
->>>>>>> e13f3dfb5b31e6bf8ed631652ff7025f731bfd81
   ${mediaQueries('lg', null)`
     max-width: 1167px;
     min-width: auto;
