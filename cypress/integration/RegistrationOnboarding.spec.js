@@ -31,7 +31,6 @@ describe('Registration Screen', () => {
         cy.contains("TermsAndConditions")
         cy.visit("http://localhost:6006/iframe.html?id=components-registrationonboarding--registration-page-story&args=&viewMode=story")
         cy.get("span").contains("I agree to the")
-        cy.get('a').contains("terms & conditions")
     })
     it('has buttons', () => {
         cy.contains("Button")

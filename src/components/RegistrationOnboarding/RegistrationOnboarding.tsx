@@ -1,26 +1,28 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, {useState} from 'react';
+import styled from 'styled-components';
 
-import { LeftSide } from '../LeftSide/LeftSide'
-import { Back } from '../Back/Back'
-import { Input } from '../InputName/InputName'
-import { TermsAndConditions } from '../TermsAndConditions/TermsAndConditions'
-import Button from '../Button/Button'
-import { fonts } from '../../globalStyles/fonts'
-import googleIcon from '../../assests/google.svg'
-import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
+import { LeftSide } from '../LeftSide/LeftSide';
+import { Back } from '../Back/Back';
+import { Input } from '../InputName/InputName';
+import { TermsAndConditions } from '../TermsAndConditions/TermsAndConditions';
+import Button from '../Button/Button';
+import { fonts } from '../../globalStyles/fonts';
+import googleIcon from '../../assests/google.svg';
+import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries';
+import { USER_ROLE } from '../RoleSelectOnboard/RoleSelectOnboard';
 
-const Container = styled('div')`
-  ${fonts}
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 82%;
-  margin-inline: auto;
+const Container = styled("div")`
+    ${fonts}
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 82%;
+    margin-inline: auto;
+    margin-bottom: -125px;
 
-  & > div:first-child {
-    margin: 0;
+    & > div:first-child {
+        margin: 0;
 
-    ${mediaQueries(null, 'lg')`
+        ${mediaQueries(null, "lg")`
             display: none;
         `}
   }
@@ -133,6 +135,8 @@ const Container = styled('div')`
 
       ${mediaQueries(null, 'lg')`
                 padding-inline: 0;
+                max-width: 426px;
+                margin-inline: auto;
             `}
     }
 
@@ -143,6 +147,7 @@ const Container = styled('div')`
             padding-inline-end: 12px;
             padding-block-start: 18px;
             padding-block-end: 32px;
+            position: relative;
             
             h3 {
                 display: none;
@@ -150,152 +155,109 @@ const Container = styled('div')`
         `}
   }
 
-  ${mediaQueries(null, 'lg')`
+    ${mediaQueries(null, "lg")`
+        max-width: 90%;
+        margin-inline: auto;
         display: block;
     `}
+`;
+const PasswordInputContainer = styled.div`
+  color: #979797;
+  position: relative;
 `
-
-const PasswordField = styled('div')`
-    ${fonts}
-    font-family: 'Futura Std';
-
-    label {
-        font-size: 16px;
-        line-height: 19.2px;
-        color: #979797;
-    }
-
-    fieldset {
-        ${fonts}
-        font-family: 'Futura Std';
-        display flex;
-        flex-direction: row;
-        justify-content: space-between;
-        border: 1px solid #979797;
-        border-radius: 6px;
-        margin-block-start: 10px;
-        padding-block-start: 17px;
-        padding-block-end: 16px;
-        margin-inline: 0;
-
-        input {
-            border: none;
-            outline: none;
-            font-size: 14px;
-            line-height: 16.8px;
-            margin-inline-start: 16px;
-
-            ::placeholder {
-                font-family: 'Futura Std';
-            }
-        }
-
-        button {
-            font-family: 'Futura Std';
-            font-size: 12px;
-            line-height: 14.4px;
-            color: #041D42;
-            border: none;
-            outline: none;
-            background-color: #ffffff;
-        }
-    }
-}
+const HidePasswordBtn = styled.span`
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 33px;
+  right: 21px;
+  font-family: Futura Std;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  color: #041d42;
 `
 
 export interface RegistrationOnboardingProps {
-  background: string
-  label: string
-  href: string
-  userNameLabel: string
-  userNamePlaceholder: string
-  addressLabel: string
-  addressPlaceholder: string
-  passwordLabel: string
-  passwordPlaceholder: string
-  termsLabel: string
-  serviceTerms: string
-  termHref: string
-  isChecked: boolean
-  isPrimary: boolean
-  registerButton: string
-  registerWithGoogleButton: string
+    isChecked: boolean,
+    isPrimary: boolean,
+    role: USER_ROLE
 }
 
 export const RegistrationOnboarding: React.FC<RegistrationOnboardingProps> = ({
-  background,
-  label,
-  href,
-  userNameLabel,
-  userNamePlaceholder,
-  addressLabel,
-  addressPlaceholder,
-  passwordLabel,
-  passwordPlaceholder,
-  termsLabel,
-  serviceTerms,
-  termHref,
-  isChecked,
-  isPrimary,
-  registerButton,
-  registerWithGoogleButton,
+    isChecked,
+    isPrimary,
+    role
 }) => {
-  const [isClicked, setIsClicked] = useState(false)
+    const [showPassword, setShowPassword] = useState(false);
+    const [userName, setUserName] = useState("");
+    const [emailAddress, setEmailAddress] = useState("");
+    const [password, setPassword] = useState('');
 
-  function handleButtonClick() {
-    setIsClicked(!isClicked)
-  }
+    const handleInputUserName = (e: any) => {
+        setUserName(e.target.value);
+    }
+    const handleInputEmailAddress = (e: any) => {
+        setEmailAddress(e.target.value);
+    }
+    const handleInputPassword = (e: any) => {
+        setPassword(e.target.value);
+    }
 
-  return (
-    <Container>
-      <LeftSide backgroundImage={background} />
-      <article>
-        <header>
-          <h3>Register your account</h3>
-          <div>
-            <Back label={label} href={href} />
-            <div>
-              <p>Step 01/02</p>
-              <p>Personal info.</p>
-            </div>
-          </div>
-        </header>
-        <form>
-          <Input
-            label={userNameLabel}
-            placeholder={userNamePlaceholder}
-            name='large'
-          />
-          <Input
-            label={addressLabel}
-            placeholder={addressPlaceholder}
-            name='large'
-          />
-          <PasswordField>
-            <label>{passwordLabel}</label>
-            <fieldset>
-              <input
-                type='password'
-                placeholder={passwordPlaceholder}
-                required
-              />
-              <button type='button' onClick={handleButtonClick}>
-                {isClicked ? 'Hide' : 'Show'}
-              </button>
-            </fieldset>
-          </PasswordField>
-          <TermsAndConditions
-            termsLabel={termsLabel}
-            href={termHref}
-            serviceTerms={serviceTerms}
-            isChecked={isChecked}
-          />
-          <div>
-            <Button isPrimary={isPrimary} label={registerButton} />
-            <Button label={registerWithGoogleButton} />
-          </div>
-        </form>
-      </article>
-    </Container>
-  )
+    return (
+        <Container>
+            <LeftSide backgroundImage="Baobab"/>
+            <article>
+                <header>
+                    <h3>
+                        Register your account
+                    </h3>
+                    <div>
+                        <Back label="Back" href="/" />
+                        <div>
+                            <p>Step 01/02</p>
+                        </div>
+                    </div>
+                </header>
+                <form>
+                    <Input 
+                        label="Your username" 
+                        placeholder="Username" 
+                        name="large" 
+                        inputType="text" 
+                        inputValue={userName} 
+                        onChange={handleInputUserName}
+                     />
+                    <Input 
+                        label="Email address" 
+                        placeholder="Enter email address" 
+                        name="large" 
+                        inputType="email" 
+                        inputValue={emailAddress} 
+                        onChange={handleInputEmailAddress}
+                     />
+                    <PasswordInputContainer>
+                        <Input
+                            name='large'
+                            label='Create password'
+                            inputValue={password}
+                            onChange={handleInputPassword}
+                            placeholder='Enter a password'
+                            inputType={showPassword ? 'text' : 'password'}
+                        />
+                        <HidePasswordBtn onClick={() => setShowPassword(!showPassword)}>
+                            {showPassword ? 'Hide' : 'Show'}
+                        </HidePasswordBtn>
+                        </PasswordInputContainer>
+                    <TermsAndConditions termsLabel="I agree to the" href="/" serviceTerms="term & conditions" isChecked={isChecked} />
+                    <div>
+                        <Button isPrimary={isPrimary} label="Register account" />
+                        <Button label="Register with Google" />
+                    </div>
+                </form>
+            </article>
+        </Container>
+    )
 }

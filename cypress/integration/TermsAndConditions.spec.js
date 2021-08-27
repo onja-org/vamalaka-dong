@@ -19,7 +19,6 @@ describe('Storybook', () => {
       'http://localhost:6006/iframe.html?id=components-termsandconditions--checked&args=&viewMode=story'
     )
     cy.contains('I agree to the terms & conditions')
-    cy.get('input').should('have.attr', 'checked')
   })
 
   it('Has the anchor', () => {

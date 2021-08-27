@@ -18,7 +18,17 @@ import briefcaseIcon from '../../stories/assets/briefcase.svg'
 import { LoginReminder } from '../LoginReminder/LoginReminder'
 import { LeftSide } from '../LeftSide/LeftSide'
 
-export const RoleSelectOnboard: React.FC = () => {
+export interface RoleSelectorProps {
+  handleClick: (userRole: USER_ROLE) => void,
+}
+
+export enum USER_ROLE {
+  SELLER = 'seller',
+  BUYER = 'buyer',
+  UNSELECTED = ''
+}
+
+export const RoleSelectOnboard: React.FC<RoleSelectorProps> = ({handleClick}) => {
   return (
     <MainContainer>
       <ImageContainer>
@@ -35,7 +45,7 @@ export const RoleSelectOnboard: React.FC = () => {
             />
           </DescriptionOfferWrapper>
         </SubHeadingWrapper>
-        <BuyerOption>
+        <BuyerOption onClick={() => handleClick(USER_ROLE.BUYER)}>
           <Option
             label='Buyer'
             text='Personal account to manage all you activities.'
@@ -43,7 +53,7 @@ export const RoleSelectOnboard: React.FC = () => {
             alt='User icon'
           />
         </BuyerOption>
-        <SellerOption>
+        <SellerOption onClick={() => handleClick(USER_ROLE.SELLER)}>
           <Option
             label='Seller'
             text='Own or belong to a company, this is for you.'
