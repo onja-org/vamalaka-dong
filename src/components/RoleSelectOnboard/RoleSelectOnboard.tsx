@@ -35,6 +35,9 @@ export const RoleSelectOnboard: React.FC<RoleSelectorProps> = ({handleClick}) =>
         <LeftSide backgroundImage='Baobab' />
       </ImageContainer>
       <RoleOptionContainer>
+        <AccountContainer>
+          <LoginReminder isSignedUp={true} href='./' />
+        </AccountContainer>
         <SubHeadingWrapper>
           <JoinUsHeader>Join us</JoinUsHeader>
           <DescriptionOfferWrapper>
@@ -61,9 +64,6 @@ export const RoleSelectOnboard: React.FC<RoleSelectorProps> = ({handleClick}) =>
             alt='Briefcase icon'
           />
         </SellerOption>
-        <AccountContainer>
-          <LoginReminder isSignedUp={true} href='./' />
-        </AccountContainer>
       </RoleOptionContainer>
     </MainContainer>
   )

@@ -67,13 +67,6 @@ const Container = styled("div")`
             line-height: 17px;
             text-transform: uppercase;
           }
-
-          p:last-child {
-            margin: 0;
-            color: #979797;
-            font-size: 16px;
-            line-height: 19px;
-          }
         }
 
         ${mediaQueries(null, 'lg')`
