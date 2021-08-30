@@ -8,6 +8,8 @@ import styled, { css } from 'styled-components'
 import { ImageContainer } from '../RoleSelectOnboard/RoleSelectOnboardStyles'
 import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
 import { LoginReminder } from '../LoginReminder/LoginReminder'
+import { incrementByAmount } from '../../redux/slices/adsSlice'
+import { useAppDispatch } from '../../redux/hooks'
 
 const FlexLayout = css`
   display: flex;
@@ -37,7 +39,7 @@ const LoginContainer = styled.div`
   position: relative;
   background-color: #fff;
   ${mediaQueries('lg', null)`
-    padding: 14px 22px 99px 18px;
+    padding: 14px 22px 99px 14px;
   `};
 `
 const Header = styled.div`
@@ -125,11 +127,15 @@ export const Login: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [passwordValue, setPasswordValue] = useState('')
   const [emailValue, setEmailValue] = useState('')
+  const dispatch = useAppDispatch()
   function handlePassword(e: any) {
     setPasswordValue(e.target.value)
   }
   function handleEmail(e: any) {
     setEmailValue(e.target.value)
+  }
+  function handleLogin() {
+    dispatch(incrementByAmount(200))
   }
 
   return (
@@ -141,7 +147,7 @@ export const Login: React.FC = () => {
         <Header>
           <Back href='/' label='Back' />
           <HeaderContent>
-            <LoginReminder isSignedUp={true} href='./' />
+            <LoginReminder isSignedUp={false} href='./registration' />
           </HeaderContent>
         </Header>
         <LoginForm>
@@ -170,7 +176,7 @@ export const Login: React.FC = () => {
             </PasswordInputContainer>
           </LoginFormContent>
           <LoginButtonContainer>
-            <Button isPrimary={true} label='Login' />
+            <Button isPrimary={true} label='Login' onClick={handleLogin} />
             <Button label='Login with Google' />
           </LoginButtonContainer>
         </LoginForm>

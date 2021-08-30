@@ -24,7 +24,6 @@ export const LoginReminder: React.FC<LoginReminderProps> = ({
         {loginEscapeTexts}
         <a href={href}>{signUpOrSignInTexts}</a>
       </p>
-      <p>Step 01/02</p>
     </LoginContainer>
   )
 }

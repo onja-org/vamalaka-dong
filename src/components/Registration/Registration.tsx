@@ -30,11 +30,11 @@ const Container = styled('article')`
 const RegistrationContainer = styled.div`
   font-family: 'Futura Std', Arial, Helvetica, sans-serif;
   font-style: normal;
-  padding: 54px 13px 34px 13px;
+  padding: 14px 14px 34px 14px;
   position: relative;
   background-color: #fff;
   ${mediaQueries(null, 'lg')`
-    padding: 54px 13px 89px 13px;
+    padding: 14px 13px 89px 14px;
   `};
 `
 const Header = styled.header`
@@ -152,7 +152,7 @@ export const Registration: React.FC = () => {
         <Header>
           <HeaderContent>
             <Back label='Back' href='/' />
-            <FirstStep>Step 01/02</FirstStep>
+            <FirstStep>Step 02/03</FirstStep>
           </HeaderContent>
           <Title>Register your account</Title>
         </Header>

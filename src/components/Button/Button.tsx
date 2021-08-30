@@ -43,7 +43,7 @@ const Button: React.FC<ButtonProps> = ({
         type='button'
         isPrimary={isPrimary ? true : false}
         disabled={disabled}
-        onClick={() => ''}
+        onClick={onClick}
         {...props}>
         {label}
       </ButtonStyled>
