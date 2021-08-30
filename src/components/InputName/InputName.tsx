@@ -100,6 +100,7 @@ export const Input: React.FC<InputProps> = ({
         value={inputValue}
         placeholder={placeholder}
         onChange={onChange}
+        autoComplete='off'
       />
     </InputContainer>
   )
