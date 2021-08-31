@@ -10,10 +10,10 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <Route path='/' exact component={LoginPage} />
+        <Route path='/' exact component={OnboardingPage} />
         <Route path='/homepage' exact component={HomePage} />
         <Route path='/registration' exact component={RegistrationPage} />
-        <Route path='/login' exact component={OnboardingPage} />
+        <Route path='/login' exact component={LoginPage} />
       </header>
     </div>
   )

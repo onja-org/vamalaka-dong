@@ -34,11 +34,27 @@ export const MainContainer = styled.div`
     }
   `};
 `
+export const FirstStep = styled.p`
+  font-family: Futura Std;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: right;
+  color: #bdbdbd;
+  ${mediaQueries(null, 'lg')`
+    display: none;
+  `};
+`
 export const RoleOptionContainer = styled.div`
   position: relative;
   background-color: #fff;
-  ${mediaQueries('lg', null)`
-    padding: 16px 21px;
+  padding-bottom: 113px;
+  ${mediaQueries(null, 'lg')`
+    padding: 16px 16px 48px 21px;
+    > div:last-child {
+      padding-bottom: 48px;
+    }
   `};
 `
 export const BuyerOption = styled.div`
@@ -67,15 +83,22 @@ export const Container = styled.div`
 `
 export const AccountContainer = styled.div`
   color: #979797;
-  ${mediaQueries('lg', null)`
-    p {
-      margin: 0;
-      top: 22px;
-      right: 27px;
-    }
-  `};
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
   ${mediaQueries(null, 'lg')`
-    padding: 48px 27px 14px 27px;
+    padding: 27px 27px 14px 27px;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    padding-bottom: 14px;
+    transform:translateX(-50%);
+    white-space: nowrap;
+  `};
+  ${mediaQueries(null, 'sm')`
+    white-space: wrap;
   `};
 `
 export const HeaderContainer = styled.div`

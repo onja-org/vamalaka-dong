@@ -6,6 +6,7 @@ import {
   SellerOption,
   AccountContainer,
   ImageContainer,
+  FirstStep,
   JoinUsHeader,
   SubHeadingWrapper,
   DescriptionOfferWrapper,
@@ -38,6 +39,7 @@ export const RoleSelectOnboard: React.FC<RoleSelectorProps> = ({
       <RoleOptionContainer>
         <AccountContainer>
           <LoginReminder isSignedUp={true} href='./' />
+          <FirstStep>Step 01/03</FirstStep>
         </AccountContainer>
         <SubHeadingWrapper>
           <JoinUsHeader>Join us</JoinUsHeader>
