@@ -3,22 +3,19 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import { store } from './redux/store'
+import { store, history } from './redux/store'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { ConnectedRouter } from 'connected-react-router'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <Router>
+  <React.StrictMode>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
         <App />
-      </Router>
-    </React.StrictMode>
-  </Provider>,
+      </ConnectedRouter>
+    </Provider>
+  </React.StrictMode>,
   document.getElementById('root')
 )
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals()

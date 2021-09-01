@@ -9,6 +9,31 @@ import googleIcon from '../../assests/google.svg'
 import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
 import { TermsAndConditions } from '../TermsAndConditions/TermsAndConditions'
 
+export interface RegistrationProps {
+  accountRegistration?: {
+    username: string
+    emailAddress: string
+    password: string
+  }
+  termsAndConditionLink?: any
+  isChecked?: boolean
+  errorMessage?: {
+    username: string
+    emailAddress: string
+    password: string
+  }
+  onChangeUserName?: React.ChangeEventHandler<HTMLInputElement> | undefined
+  onChangeEmail?: React.ChangeEventHandler<HTMLInputElement> | undefined
+  onChangePassword?: React.ChangeEventHandler<HTMLInputElement> | undefined
+  onChangeCheckbox?: React.ChangeEventHandler<HTMLInputElement> | undefined
+  onChangeConfirmPassword?:
+    | React.ChangeEventHandler<HTMLInputElement>
+    | undefined
+  onClickRegister?: () => void
+  onSubmit?: (e: any) => void
+  loadingButtonIcon?: JSX.Element | undefined
+}
+
 const Container = styled('article')`
   ${fonts}
   max-width: 90%;
@@ -46,6 +71,7 @@ const HeaderContent = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  padding: 7px 4px;
   padding-block-end: 47px;
   ${mediaQueries(null, 'lg')`
     display: none;
@@ -128,22 +154,20 @@ const RegistrationButtonContainer = styled.div`
   }
 `
 
-export const Registration: React.FC = () => {
+export const Registration: React.FC<RegistrationProps> = ({
+  accountRegistration,
+  termsAndConditionLink,
+  isChecked,
+  errorMessage,
+  onChangeUserName,
+  onChangeEmail,
+  onChangePassword,
+  onChangeCheckbox,
+  onClickRegister,
+  onSubmit,
+  // loadingButtonIcon?: JSX.Element | undefined
+}) => {
   const [showPassword, setShowPassword] = useState(false)
-  const [userName, setUserName] = useState('')
-  const [emailAddress, setEmailAddress] = useState('')
-  const [password, setPassword] = useState('')
-
-  const handleInputUserName = (e: any) => {
-    setUserName(e.target.value)
-  }
-
-  const handleInputEmailAddress = (e: any) => {
-    setEmailAddress(e.target.value)
-  }
-  const handleInputPassword = (e: any) => {
-    setPassword(e.target.value)
-  }
 
   return (
     <Container>
@@ -156,31 +180,34 @@ export const Registration: React.FC = () => {
           </HeaderContent>
           <Title>Register your account</Title>
         </Header>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <Input
             label='Your username'
-            placeholder='Username'
             name='large'
             inputType='text'
-            inputValue={userName}
-            onChange={handleInputUserName}
+            inputValue={accountRegistration?.username}
+            placeholder='Username'
+            onChange={onChangeUserName}
+            errorMessage={errorMessage?.username}
           />
           <Input
-            label='Email address'
-            placeholder='Enter email address'
             name='large'
             inputType='email'
-            inputValue={emailAddress}
-            onChange={handleInputEmailAddress}
+            label='Email address'
+            inputValue={accountRegistration?.emailAddress}
+            placeholder='Enter email address'
+            onChange={onChangeEmail}
+            errorMessage={errorMessage?.emailAddress}
           />
           <PasswordInputContainer>
             <Input
               name='large'
+              inputValue={accountRegistration?.password}
               label='Create password'
-              inputValue={password}
-              onChange={handleInputPassword}
+              onChange={onChangePassword}
               placeholder='Enter a password'
               inputType={showPassword ? 'text' : 'password'}
+              errorMessage={errorMessage?.password}
             />
             <HidePasswordBtn onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? 'Hide' : 'Show'}
@@ -188,12 +215,17 @@ export const Registration: React.FC = () => {
           </PasswordInputContainer>
           <TermsAndConditions
             termsLabel='I agree to the'
-            href='/'
+            href={termsAndConditionLink}
             serviceTerms='terms & conditions'
-            isChecked={true}
+            isChecked={isChecked}
+            onChange={onChangeCheckbox}
           />
           <RegistrationButtonContainer>
-            <Button isPrimary={true} label='Register account' />
+            <Button
+              isPrimary={true}
+              label='Register account'
+              onClick={onClickRegister}
+            />
             <Button label='Register with Google' />
           </RegistrationButtonContainer>
         </Form>

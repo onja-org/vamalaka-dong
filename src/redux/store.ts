@@ -1,13 +1,23 @@
-import { configureStore } from "@reduxjs/toolkit";
-import adsReducer from "./slices/adsSlice";
+import { configureStore } from '@reduxjs/toolkit'
+import adsReducer from './slices/adsSlice'
 
+import { combineReducers } from '@reduxjs/toolkit'
+import { createBrowserHistory } from 'history'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
+import userReducer from './slices/userSlice'
+export const history = createBrowserHistory()
+
+const rootReducer = combineReducers({
+  router: connectRouter(history) as any,
+  ads: adsReducer,
+  user: userReducer,
+})
+
+export type RootState = ReturnType<typeof rootReducer>
 export const store = configureStore({
-  reducer: {
-    ads: adsReducer,
-  },
-});
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(routerMiddleware(history)),
+})
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = typeof store.dispatch

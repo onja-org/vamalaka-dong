@@ -82,6 +82,7 @@ export const Container = styled.div`
   `};
 `
 export const AccountContainer = styled.div`
+  padding: 21px 18px;
   color: #979797;
   display: flex;
   flex-direction: row;

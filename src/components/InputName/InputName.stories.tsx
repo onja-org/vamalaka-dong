@@ -14,9 +14,10 @@ export const largeInput = Template.bind({})
 largeInput.args = {
   name: 'large',
   onChange: () => null,
-  inputType: 'password',
+  inputType: 'text',
+  inputId: 'name',
   inputValue: '',
-  label: 'Your email address',
+  label: 'Your full name',
   placeholder: 'Invictus Innocent',
 }
 
@@ -24,8 +25,9 @@ export const smallInput = Template.bind({})
 smallInput.args = {
   name: 'small',
   onChange: () => null,
-  inputType: 'password',
+  inputType: 'text',
+  inputId: 'name',
   inputValue: '',
-  label: 'Your email address',
+  label: 'Your full name',
   placeholder: 'Invictus Innocent',
 }

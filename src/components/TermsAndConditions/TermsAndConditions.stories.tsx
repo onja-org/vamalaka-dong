@@ -16,15 +16,15 @@ const Template: Story<TermsAndConditionsProps> = (args) => (
 
 export const UnChecked = Template.bind({})
 UnChecked.args = {
+  href: '/',
   termsLabel: 'I agree to the',
   serviceTerms: 'terms & conditions',
-  href: '/',
 }
 
 export const Checked = Template.bind({})
 Checked.args = {
-  termsLabel: 'I agree to the',
-  serviceTerms: 'terms & conditions',
   href: '/',
   isChecked: true,
+  termsLabel: 'I agree to the',
+  serviceTerms: 'terms & conditions',
 }

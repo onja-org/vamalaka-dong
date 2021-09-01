@@ -15,7 +15,6 @@ const inputStyles = css`
   align-items: center;
   color: #979797;
   outline: none;
-  border: 1px solid #979797;
   border-radius: 6px;
 `
 const InputContainer = styled.div`
@@ -45,62 +44,90 @@ const InputContainer = styled.div`
   }
 `
 const Label = styled.label`
+  font-family: 'Futura Std', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;
   display: flex;
+  flex-direction: row;
   color: #979797;
   padding-bottom: 6px;
-  align-items: start;
-  font-family: 'Futura Std', Arial, Helvetica, sans-serif;
 `
-const InputElement = styled.input`
+const InputElement = styled.input<{ errorMessage: string | undefined }>`
   ${fonts}
-  font-family: 'Futura Std', Arial, Helvetica, sans-serif;
+
+  border: ${({ errorMessage }) =>
+    errorMessage ? '1px solid red' : '1px solid #979797'};
+  color: ${({ errorMessage }) => (errorMessage ? '#FC462B' : '#979797')};
 
   &::-webkit-input-placeholder {
     ${fonts}
     font-family: 'Futura Std', Arial, Helvetica, sans-serif;
+    color: ${({ errorMessage }) => (errorMessage ? '#FC462B' : '#979797')};
   }
 
   &:-ms-input-placeholder {
     ${fonts}
     font-family: 'Futura Std', Arial, Helvetica, sans-serif;
+    color: ${({ errorMessage }) => (errorMessage ? '#FC462B' : '#979797')};
   }
 
   &::placeholder {
     ${fonts}
     font-family: 'Futura Std', Arial, Helvetica, sans-serif;
+    color: ${({ errorMessage }) => (errorMessage ? '#FC462B' : '#979797')};
   }
+
+  &:focus {
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+    border: 1px solid #041d42;
+    color: #979797;
+  }
+`
+const ToggleError = styled.span`
+  olor: #fc462b;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
 `
 export interface InputProps {
   name?: string
   label?: string
+  inputId?: string
   inputType?: string
   inputValue?: string
   placeholder?: string
+  errorMessage?: string
   onChange?: React.ChangeEventHandler<HTMLInputElement>
 }
 
 export const Input: React.FC<InputProps> = ({
   name,
   label,
+  inputId,
   onChange,
   inputType,
   inputValue,
   placeholder,
+  errorMessage,
 }) => {
   return (
     <InputContainer>
-      <Label>{label}</Label>
+      <Label htmlFor={inputId}>
+        {label}
+        {errorMessage && <ToggleError>{errorMessage}</ToggleError>}
+      </Label>
       <InputElement
+        id={inputId}
         className={name}
         type={inputType}
         value={inputValue}
-        placeholder={placeholder}
-        onChange={onChange}
         autoComplete='off'
+        onChange={onChange}
+        placeholder={placeholder}
+        errorMessage={errorMessage}
       />
     </InputContainer>
   )
