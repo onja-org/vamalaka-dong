@@ -13,7 +13,7 @@ const RegistrationUser: Story<RegistrationProps> = (args) => (
 export const ValidForm = RegistrationUser.bind({})
 ValidForm.args = {
   accountRegistration: {
-    username: 'username',
+    username: 'Your username',
     emailAddress: 'name@gmail.com',
     password: 'aajdha',
   },
@@ -30,7 +30,7 @@ ValidForm.args = {
 export const inValidForm = RegistrationUser.bind({})
 inValidForm.args = {
   accountRegistration: {
-    username: 'username',
+    username: 'Your username',
     emailAddress: 'name@gmail',
     password: 'aajdha',
   },

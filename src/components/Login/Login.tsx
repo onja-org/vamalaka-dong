@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Back } from '../Back/Back'
 import Button from '../Button/Button'
-import googleIcon from '../../assests/google.svg'
 import { Input } from '../InputName/InputName'
 import { LeftSide } from '../LeftSide/LeftSide'
 import styled, { css } from 'styled-components'
-import { ImageContainer } from '../RoleSelectOnboard/RoleSelectOnboardStyles'
-import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
+import googleIcon from '../../assests/google.svg'
+import { useAppDispatch } from '../../redux/hooks'
 import { LoginReminder } from '../LoginReminder/LoginReminder'
 import { incrementByAmount } from '../../redux/slices/adsSlice'
-import { useAppDispatch } from '../../redux/hooks'
+import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
+import { ImageContainer } from '../RoleSelectOnboard/RoleSelectOnboardStyles'
 
 const FlexLayout = css`
   display: flex;
