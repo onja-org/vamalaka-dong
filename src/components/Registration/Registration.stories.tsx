@@ -19,12 +19,6 @@ ValidForm.args = {
   },
   termsAndConditionLink: '/',
   isChecked: true,
-  onChangeCheckbox: () => null,
-  onChangeUserName: () => null,
-  onChangeEmail: () => null,
-  onChangePassword: () => null,
-  onClickRegister: () => null,
-  onSubmit: () => null,
 }
 
 export const inValidForm = RegistrationUser.bind({})
@@ -40,9 +34,4 @@ inValidForm.args = {
     password: 'Password must be at least 8 character',
   },
   termsAndConditionLink: '/',
-  onChangeUserName: () => null,
-  onChangeEmail: () => null,
-  onChangePassword: () => null,
-  onClickRegister: () => null,
-  onSubmit: () => null,
 }

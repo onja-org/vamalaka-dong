@@ -42,6 +42,7 @@ export const FirstStep = styled.p`
   line-height: 17px;
   text-align: right;
   color: #bdbdbd;
+  margin: 0;
   ${mediaQueries(null, 'lg')`
     display: none;
   `};

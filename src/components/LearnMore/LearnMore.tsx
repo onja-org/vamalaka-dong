@@ -149,7 +149,7 @@ export const LearnMore: React.FC<LearnMoreProps> = ({
           </ButtonContainer>
         </div>
       </div>
-      <img src={imageUrl} alt='Peer-to-peer image' />
+      <img src={imageUrl} alt='Peer-to-peer' />
     </LearnMoreContainer>
   )
 }

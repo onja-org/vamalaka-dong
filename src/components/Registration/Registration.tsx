@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import { Back } from '../Back/Back'
 import Button from '../Button/Button'
 import styled from 'styled-components'
@@ -22,16 +23,12 @@ export interface RegistrationProps {
     emailAddress: string
     password: string
   }
-  onChangeUserName?: React.ChangeEventHandler<HTMLInputElement> | undefined
-  onChangeEmail?: React.ChangeEventHandler<HTMLInputElement> | undefined
-  onChangePassword?: React.ChangeEventHandler<HTMLInputElement> | undefined
-  onChangeCheckbox?: React.ChangeEventHandler<HTMLInputElement> | undefined
-  onChangeConfirmPassword?:
-    | React.ChangeEventHandler<HTMLInputElement>
-    | undefined
-  onClickRegister?: () => void
-  onSubmit?: (e: any) => void
-  loadingButtonIcon?: JSX.Element | undefined
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void
+  onChangeEmail: (e: any) => void
+  onChangeUserName: (e: any) => void
+  onChangePassword: (e: any) => void
+  onChangeCheckbox: (e: any) => void
+  onClickRegister: () => void
 }
 
 const Container = styled('article')`
@@ -55,11 +52,11 @@ const Container = styled('article')`
 const RegistrationContainer = styled.div`
   font-family: 'Futura Std', Arial, Helvetica, sans-serif;
   font-style: normal;
-  padding: 14px 14px 34px 14px;
+  padding: 21px 18px 34px 18px;
   position: relative;
   background-color: #fff;
   ${mediaQueries(null, 'lg')`
-    padding: 14px 13px 89px 14px;
+    padding: 21px 18px 89px 18px;
   `};
 `
 const Header = styled.header`
@@ -71,7 +68,6 @@ const HeaderContent = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 7px 4px;
   padding-block-end: 47px;
   ${mediaQueries(null, 'lg')`
     display: none;
@@ -155,17 +151,16 @@ const RegistrationButtonContainer = styled.div`
 `
 
 export const Registration: React.FC<RegistrationProps> = ({
-  accountRegistration,
-  termsAndConditionLink,
   isChecked,
   errorMessage,
+  accountRegistration,
+  termsAndConditionLink,
+  onSubmit,
   onChangeUserName,
   onChangeEmail,
   onChangePassword,
   onChangeCheckbox,
   onClickRegister,
-  onSubmit,
-  // loadingButtonIcon?: JSX.Element | undefined
 }) => {
   const [showPassword, setShowPassword] = useState(false)
 

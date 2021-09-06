@@ -8,6 +8,7 @@ type FetchUserError = {
 
 interface UserData {
   username: string
+  token: string
 }
 
 interface UserRegisterData {
@@ -15,15 +16,23 @@ interface UserRegisterData {
   password: string
   email: string
   role: string
+  token: string
+}
+
+interface PayloadUserRegister {
+  username: string
+  password: string
+  email: string
+  role: string
 }
 
 interface PayloadRegister {
-  register: UserRegisterData
+  register: UserData
 }
 
 export const fetchRegisterUser = createAsyncThunk<
   PayloadRegister,
-  UserRegisterData,
+  PayloadUserRegister,
   {
     dispatch: any
     state: RootState
@@ -53,7 +62,7 @@ export const fetchRegisterUser = createAsyncThunk<
 })
 
 const initialState = {
-  user: { username: '' } as UserData,
+  user: { username: '', token: '' } as UserData,
   status: '',
   error: null as FetchUserError | null,
 }
