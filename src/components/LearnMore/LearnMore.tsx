@@ -4,6 +4,7 @@ import { fonts } from '../../globalStyles/fonts'
 
 import Button from '../Button/Button'
 import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
+import PeerImage from '../LearnMore/image/peer.svg'
 
 const LearnMoreContainer = styled.article`
   ${fonts}
@@ -39,8 +40,9 @@ const LearnMoreContainer = styled.article`
   }
 
   ${mediaQueries('lg', null)`
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         padding-inline: 80px;
         margin-block-end: 93px;
         margin-block-start: 51px;
@@ -118,15 +120,11 @@ const ButtonContainer = styled.div`
 export interface LearnMoreProps {
   isPrimary?: boolean
   onClick?: () => void
-  learnMoreButton: string
-  imageUrl: string
   learnMore?: string
   trustButton?: string
 }
 export const LearnMore: React.FC<LearnMoreProps> = ({
   isPrimary,
-  learnMoreButton,
-  imageUrl,
   learnMore,
   trustButton,
 }) => {
@@ -143,13 +141,13 @@ export const LearnMore: React.FC<LearnMoreProps> = ({
             and how it was made.
           </p>
           <ButtonContainer>
-            <Button isPrimary={isPrimary} label={learnMoreButton} />
+            <Button isPrimary={isPrimary} label='Learn how it works' />
             <Button isPrimary={isPrimary} label={learnMore} />
             <Button label={trustButton} />
           </ButtonContainer>
         </div>
       </div>
-      <img src={imageUrl} alt='Peer-to-peer image' />
+      <img src={PeerImage} alt='Peer-to-peer' />
     </LearnMoreContainer>
   )
 }

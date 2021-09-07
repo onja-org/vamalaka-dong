@@ -21,7 +21,7 @@ export const loggedIn = [
     text: 'Account',
   },
 ]
-export const loggeOut = [
+export const loggedOut = [
   { path: '#language', imgSrc: language, alt: 'Languages', text: 'English' },
   {
     path: '#login',

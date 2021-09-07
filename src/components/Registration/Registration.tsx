@@ -116,7 +116,7 @@ const RegistrationButtonContainer = styled.div`
   ${mediaQueries('lg', null)`
     display: flex;
     flex-direction: row;
-    aling-item: center;
+    align-item: center;
   `};
   button {
     :last-child {

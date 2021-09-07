@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react'
+import { Description } from '../DescriptionOffer/descriptionOffer.stories'
 import TopCategories from './TopCategories'
 import { TopCategoriesProps } from './TopCategories'
 
@@ -14,12 +15,16 @@ const Categories: Story<TopCategoriesProps> = (args) => (
 export const categories = Categories.bind({})
 categories.args = {
   title: 'Top categories',
-  names: [
-    'food',
-    'handmade',
-    'spices',
-    'clothing',
-    'collectibles',
-    'everything',
+  categories: [
+    {
+      title: 'food',
+      description: 'more food',
+      id: 'kjfjs',
+    },
+    {
+      title: 'handmade',
+      description: 'more bags',
+      id: 'jedds',
+    },
   ],
 }

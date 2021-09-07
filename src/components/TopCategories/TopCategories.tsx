@@ -21,6 +21,7 @@ const Header = styled.h1`
   padding-bottom: 15px;
   margin-top: 0;
   margin-bottom: 0;
+  margin-left: 20px;
 `
 
 const CategoryList = styled.div`
@@ -46,30 +47,33 @@ const Button = styled.button`
   width: 214px;
   flex-basis: 100%;
   text-align: center;
-  margin-bottom: 20px;
-  margin-top: 5px;
+  margin-left: 11px;
 `
+interface Category {
+  description: string
+  title: string
+  id: string
+}
 
 export interface TopCategoriesProps {
-  names?: any
+  categories: Category[]
   title?: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 const TopCategories: React.FC<TopCategoriesProps> = ({
-  names,
+  categories,
   title,
   onClick,
-  ...props
 }) => {
   return (
     <CategoryContainer>
       <Header>{title}</Header>
       <CategoryList>
-        {names.map((item: string) => {
+        {categories.map((category) => {
           return (
-            <Button type='button' onClick={() => ''} {...props}>
-              {item}
+            <Button key={category.id} type='button' onClick={() => ''}>
+              {category.title}
             </Button>
           )
         })}

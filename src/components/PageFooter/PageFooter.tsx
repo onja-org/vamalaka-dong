@@ -4,6 +4,60 @@ import { LinkSection } from '../Footer/Footer'
 
 import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
 
+export const footerLinksShort = [
+  {
+    summary: 'Madamada',
+    links: [
+      { linkContent: 'about', linkUrl: '#about' },
+      { linkContent: 'careers', linkUrl: '#careers' },
+      { linkContent: 'pricing', linkUrl: '#pricing' },
+      { linkContent: 'FAQ', linkUrl: '#faq' },
+      { linkContent: 'About', linkUrl: '#about' },
+    ],
+    id: '1',
+  },
+  {
+    summary: 'Vamalaka',
+    links: [
+      { linkContent: 'about', linkUrl: '#about' },
+      { linkContent: 'careers', linkUrl: '#careers' },
+      { linkContent: 'pricing', linkUrl: '#pricing' },
+      { linkContent: 'FAQ', linkUrl: '#faq' },
+    ],
+    id: '2',
+  },
+  {
+    summary: 'LearnGasy',
+    links: [
+      { linkContent: 'about', linkUrl: '#about' },
+      { linkContent: 'careers', linkUrl: '#careers' },
+      { linkContent: 'pricing', linkUrl: '#pricing' },
+      { linkContent: 'FAQ', linkUrl: '#faq' },
+      { linkContent: 'Others', linkUrl: '#others' },
+    ],
+    id: '3',
+  },
+  {
+    summary: 'Vamalaka Developers',
+    links: [
+      { linkContent: 'about', linkUrl: '#about' },
+      { linkContent: 'careers', linkUrl: '#careers' },
+      { linkContent: 'pricing', linkUrl: '#pricing' },
+      { linkContent: 'FAQ', linkUrl: '#faq' },
+    ],
+    id: '4',
+  },
+  {
+    summary: 'Others',
+    links: [
+      { linkContent: 'about', linkUrl: '#about' },
+      { linkContent: 'careers', linkUrl: '#careers' },
+      { linkContent: 'pricing', linkUrl: '#pricing' },
+      { linkContent: 'FAQ', linkUrl: '#faq' },
+    ],
+    id: '5',
+  },
+]
 export interface Props {
   footerLinks: {
     summary: string
