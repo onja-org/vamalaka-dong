@@ -24,7 +24,7 @@ export interface BackProps {
 
 const BackLink = styled.a`
   ${fonts}
-  ​
+
   --font-size: 16px;
 
   font-family: 'Futura Std', Arial, Helvetica, sans-serif;
@@ -45,9 +45,6 @@ const BackLink = styled.a`
   }
   &.size--large {
     --font-size: 24px;
-  }
-  ​ @media (max-width: 375px) {
-    --font-size: 12px;
   }
 `
 export const Back: React.FC<BackProps> = ({

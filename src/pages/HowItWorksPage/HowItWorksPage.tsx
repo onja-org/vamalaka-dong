@@ -24,9 +24,7 @@ const HowItWorksPageStyles = styled.article`
 
 export interface HowItWorksPageProps {
   item: any
-  imageUrl: string
   isPrimary: true
-  learnMoreButton: string
   learnMore: string
   trustButton: string
   footerLinks: {
@@ -43,10 +41,8 @@ export interface HowItWorksPageProps {
 }
 export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
   item,
-  imageUrl,
   isPrimary,
   footerLinks,
-  learnMoreButton,
   learnMore,
   trustButton,
   title,
@@ -58,9 +54,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
     <HowItWorksPageStyles>
       <Header item={item} />
       <LearnMore
-        imageUrl={imageUrl}
         isPrimary={isPrimary}
-        learnMoreButton={learnMoreButton}
         learnMore={learnMore}
         trustButton={trustButton}
       />

@@ -1,10 +1,8 @@
 import React from 'react'
 import { HowItWorksPage } from './HowItWorksPage'
 import { HowItWorksPageProps } from './HowItWorksPage'
-import { loggeOut } from '../../components/HeaderNavLink/HeaderNavLink'
+import { loggedOut } from '../../components/HeaderNavLink/HeaderNavLink'
 import { Story, Meta } from '@storybook/react'
-
-import peerImage from '../../components/LearnMore/image/peer.svg'
 
 export default {
   title: 'Pages/HowItWorksPage',
@@ -16,10 +14,9 @@ const Template: Story<HowItWorksPageProps> = (args) => (
 )
 export const howItWorksPage = Template.bind({})
 howItWorksPage.args = {
-  item: loggeOut,
+  item: loggedOut,
   learnMore: 'Learn more',
   trustButton: 'Can you trust us?',
-  imageUrl: peerImage,
   isPrimary: true,
   footerLinks: [
     {
