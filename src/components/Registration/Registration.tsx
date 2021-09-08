@@ -141,6 +141,7 @@ const RegistrationButtonContainer = styled.div`
     aling-item: center;
   `};
   button {
+    white-space: nowrap;
     :last-child {
       background-image: url(${googleIcon});
       background-repeat: no-repeat;

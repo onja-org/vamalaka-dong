@@ -83,7 +83,8 @@ export const Container = styled.div`
   `};
 `
 export const AccountContainer = styled.div`
-  padding: 21px 18px;
+  padding: 21px 18px 0 18px;
+  margin-bottom: 67px;
   color: #979797;
   display: flex;
   flex-direction: row;
@@ -128,6 +129,7 @@ export const JoinUsHeader = styled.h3`
   color: #041d42;
   margin: 0;
   text-align: left;
+  padding-bottom: 10px;
 `
 export const DescriptionOfferWrapper = styled.div`
   margin-top: 10px;
