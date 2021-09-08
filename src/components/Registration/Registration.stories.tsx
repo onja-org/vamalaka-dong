@@ -28,10 +28,5 @@ inValidForm.args = {
     emailAddress: 'name@gmail',
     password: 'aajdha',
   },
-  errorMessage: {
-    username: 'Invalid username',
-    emailAddress: 'Invalid email',
-    password: 'Password must be at least 8 character',
-  },
   termsAndConditionLink: '/',
 }

@@ -99,6 +99,7 @@ export const OnboardingPage: React.FC = () => {
             onChangePassword={onChangeUserpassword}
             onChangeCheckbox={onChangeCheckbox}
             onClickRegister={submitUser}
+            errorMessages={errorMessages}
           />
         )
       ) : (

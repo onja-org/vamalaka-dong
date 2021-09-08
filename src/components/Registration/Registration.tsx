@@ -11,6 +11,11 @@ import { mediaQueries } from '../../globalStyles/mediaQueries/mediaQueries'
 import { TermsAndConditions } from '../TermsAndConditions/TermsAndConditions'
 
 export interface RegistrationProps {
+  errorMessages?: {
+    username: string
+    email: string
+    password: string
+  }
   accountRegistration?: {
     username: string
     emailAddress: string
@@ -18,11 +23,6 @@ export interface RegistrationProps {
   }
   termsAndConditionLink?: any
   isChecked?: boolean
-  errorMessage?: {
-    username: string
-    emailAddress: string
-    password: string
-  }
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void
   onChangeEmail: (e: any) => void
   onChangeUserName: (e: any) => void
@@ -152,7 +152,6 @@ const RegistrationButtonContainer = styled.div`
 
 export const Registration: React.FC<RegistrationProps> = ({
   isChecked,
-  errorMessage,
   accountRegistration,
   termsAndConditionLink,
   onSubmit,
@@ -161,6 +160,7 @@ export const Registration: React.FC<RegistrationProps> = ({
   onChangePassword,
   onChangeCheckbox,
   onClickRegister,
+  errorMessages,
 }) => {
   const [showPassword, setShowPassword] = useState(false)
 
@@ -183,7 +183,7 @@ export const Registration: React.FC<RegistrationProps> = ({
             inputValue={accountRegistration?.username}
             placeholder='Username'
             onChange={onChangeUserName}
-            errorMessage={errorMessage?.username}
+            errorMessage={errorMessages?.username}
           />
           <Input
             name='large'
@@ -192,7 +192,7 @@ export const Registration: React.FC<RegistrationProps> = ({
             inputValue={accountRegistration?.emailAddress}
             placeholder='Enter email address'
             onChange={onChangeEmail}
-            errorMessage={errorMessage?.emailAddress}
+            errorMessage={errorMessages?.email}
           />
           <PasswordInputContainer>
             <Input
@@ -202,7 +202,7 @@ export const Registration: React.FC<RegistrationProps> = ({
               onChange={onChangePassword}
               placeholder='Enter a password'
               inputType={showPassword ? 'text' : 'password'}
-              errorMessage={errorMessage?.password}
+              errorMessage={errorMessages?.password}
             />
             <HidePasswordBtn onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? 'Hide' : 'Show'}

@@ -171,7 +171,7 @@ export const Login: React.FC = () => {
                 inputType={showPassword ? 'password' : 'text'}
               />
               <HidePasswordBtn onClick={() => setShowPassword(!showPassword)}>
-                {showPassword ? 'Hide' : 'Show'}
+                {showPassword ? 'Show' : 'Hide'}
               </HidePasswordBtn>
             </PasswordInputContainer>
           </LoginFormContent>

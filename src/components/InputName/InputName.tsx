@@ -50,6 +50,7 @@ const Label = styled.label`
   font-size: 16px;
   line-height: 19px;
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
   color: #979797;
   padding-bottom: 6px;
@@ -86,7 +87,7 @@ const InputElement = styled.input<{ errorMessage: string | undefined }>`
   }
 `
 const ToggleError = styled.span`
-  olor: #fc462b;
+  color: #fc462b;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
