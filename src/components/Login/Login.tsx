@@ -39,7 +39,7 @@ const LoginContainer = styled.div`
   position: relative;
   background-color: #fff;
   ${mediaQueries('lg', null)`
-    padding: 14px 14px 99px 14px;
+    padding: 21px 18px 99px 18px;
   `};
 `
 const Header = styled.div`
